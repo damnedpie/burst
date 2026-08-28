@@ -1,0 +1,183 @@
+{
+BitmapFont: {
+	font_default: {
+		file: font.fnt
+		scaledSize: -1
+		markupEnabled: true
+		flip: false
+	}
+	font_header: {
+		file: font_header.fnt
+		scaledSize: -1
+		markupEnabled: false
+		flip: false
+	}
+}
+Color: {
+	accent_default: {
+		hex: ffb800ff
+	}
+	accent_default_disabled: {
+		hex: b27100ff
+	}
+	accent_default_hover: {
+		hex: e5a400ff
+	}
+	accent_default_pressed: {
+		hex: c98200ff
+	}
+	disabled: {
+		hex: a5a5a5ff
+	}
+	empty: {
+		hex: ffffff00
+	}
+	hover: {
+		hex: e5e5e5ff
+	}
+	pressed: {
+		hex: ccccccff
+	}
+	white: {
+		hex: ffffffff
+	}
+}
+TintedDrawable: {
+	button_default: {
+		name: panel_thin
+		color: accent_default
+	}
+	button_default_hover: {
+		name: panel_thin
+		color: accent_default_hover
+	}
+	button_default_pressed: {
+		name: panel_thin
+		color: accent_default_pressed
+	}
+	button_default_disabled: {
+		name: panel_thin
+		color: accent_default_disabled
+	}
+	top_bar_default: {
+		name: top_bar
+		color: accent_default
+	}
+	button_flat_default: {
+		name: button_flat
+		color: accent_default
+	}
+	button_flat_default_hover: {
+		name: button_flat
+		color: accent_default_hover
+	}
+	button_flat_default_pressed: {
+		name: button_flat
+		color: accent_default_pressed
+	}
+	button_flat_default_disabled: {
+		name: button_flat
+		color: accent_default_disabled
+	}
+	text_selection_pixel: {
+		name: white-pixel
+		color: accent_default
+	}
+	empty_pixel: {
+		name: white-pixel
+		color: empty
+	}
+}
+ButtonStyle: {
+	default: {
+		up: button_default
+		down: button_default_pressed
+		over: button_default_hover
+		disabled: button_default_disabled
+	}
+	default_flat: {
+		up: button_flat_default
+		down: button_flat_default_pressed
+		over: button_flat_default_hover
+		disabled: button_flat_default_disabled
+	}
+}
+CheckBoxStyle: {
+	default: {
+		parent: default_flat
+		checkboxOn: checkbox_on
+		checkboxOff: checkbox_off
+		checkboxOnOver: checkbox_on_hover
+		checkboxOver: checkbox_off_hover
+		checkboxOnDisabled: checkbox_on_disabled
+		checkboxOffDisabled: checkbox_off_disabled
+		font: font_default
+	}
+}
+ImageButtonStyle: {
+	default: {
+		parent: default
+	}
+}
+ImageTextButtonStyle: {
+	default: {
+		parent: default
+		font: font_default
+	}
+}
+LabelStyle: {
+	default: {
+		font: font_default
+		fontColor: white
+	}
+	header: {
+		font: font_header
+		fontColor: white
+	}
+}
+TextButtonStyle: {
+	default: {
+		parent: default
+		font: font_default
+		fontColor: white
+		downFontColor: pressed
+		overFontColor: hover
+		focusedFontColor: white
+		disabledFontColor: disabled
+	}
+	default_flat: {
+		parent: default_flat
+		font: font_default
+		fontColor: white
+		downFontColor: pressed
+		overFontColor: hover
+		focusedFontColor: white
+		disabledFontColor: disabled
+	}
+}
+TextFieldStyle: {
+	default: {
+		font: font_default
+		fontColor: white
+		disabledFontColor: disabled
+		selection: text_selection_pixel
+		messageFontColor: hover
+	}
+}
+TextTooltipStyle: {
+	default: {
+		label: default
+	}
+}
+TreeStyle: {
+	default: {
+		plus: tree_plus
+		minus: tree_minus
+	}
+}
+WindowStyle: {
+	default: {
+		titleFont: font_header
+	}
+}
+}

@@ -1,0 +1,31 @@
+package com.onecat.burst.desktop;
+
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
+import com.onecat.burst.Main;
+
+/** Launches the desktop (LWJGL3) application. */
+public class DesktopLauncher {
+
+	public static void main(String[] args) {
+		if (StartupHelper.startNewJvmIfRequired()) return; // This handles macOS support and helps on Windows.
+		createApplication();
+	}
+
+	private static Lwjgl3Application createApplication() {
+		return new Lwjgl3Application(new Main(), getDefaultConfiguration());
+	}
+
+	private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
+		Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
+		configuration.setTitle("Burst Editor");
+		configuration.useVsync(true);
+		configuration.setForegroundFPS(Lwjgl3ApplicationConfiguration.getDisplayMode().refreshRate + 1);
+		configuration.setBackBufferConfig(8, 8, 8, 8, 16, 0, 2);
+		configuration.setWindowedMode(1024, 768);
+		configuration.setMaximized(true);
+		configuration.setWindowIcon("logo512.png", "logo256.png", "logo128.png", "logo64.png", "logo32.png", "logo16.png");
+		return configuration;
+	}
+
+}

@@ -1,0 +1,131 @@
+
+skin.png
+size: 512, 512
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+button_flat
+  rotate: false
+  xy: 95, 347
+  size: 12, 12
+  split: 0, 0, 1, 0
+  pad: 5, 5, 2, 2
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+checkbox_off
+  rotate: false
+  xy: 1, 325
+  size: 24, 16
+  orig: 24, 16
+  offset: 0, 0
+  index: -1
+checkbox_off_disabled
+  rotate: false
+  xy: 27, 325
+  size: 24, 16
+  orig: 24, 16
+  offset: 0, 0
+  index: -1
+checkbox_off_hover
+  rotate: false
+  xy: 1, 343
+  size: 24, 16
+  orig: 24, 16
+  offset: 0, 0
+  index: -1
+checkbox_on
+  rotate: false
+  xy: 27, 343
+  size: 24, 16
+  orig: 24, 16
+  offset: 0, 0
+  index: -1
+checkbox_on_disabled
+  rotate: false
+  xy: 53, 343
+  size: 24, 16
+  orig: 24, 16
+  offset: 0, 0
+  index: -1
+checkbox_on_hover
+  rotate: false
+  xy: 1, 307
+  size: 24, 16
+  orig: 24, 16
+  offset: 0, 0
+  index: -1
+font
+  rotate: false
+  xy: 1, 448
+  size: 506, 60
+  orig: 506, 60
+  offset: 0, 0
+  index: -1
+font_header
+  rotate: false
+  xy: 1, 361
+  size: 506, 85
+  orig: 506, 85
+  offset: 0, 0
+  index: -1
+panel_default
+  rotate: false
+  xy: 79, 345
+  size: 14, 14
+  split: 6, 6, 6, 6
+  pad: 0, 0, 0, 0
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+panel_thin
+  rotate: false
+  xy: 1, 290
+  size: 12, 12
+  split: 5, 5, 5, 5
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+pbar_h_knob
+  rotate: false
+  xy: 509, 484
+  size: 1, 24
+  orig: 1, 24
+  offset: 0, 0
+  index: -1
+pbar_v_knob
+  rotate: false
+  xy: 1, 304
+  size: 24, 1
+  orig: 24, 1
+  offset: 0, 0
+  index: -1
+top_bar
+  rotate: false
+  xy: 45, 311
+  size: 12, 12
+  split: 4, 4, 4, 6
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tree_minus
+  rotate: false
+  xy: 53, 325
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tree_plus
+  rotate: false
+  xy: 27, 307
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+white-pixel
+  rotate: false
+  xy: 27, 304
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
