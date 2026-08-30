@@ -15,7 +15,6 @@ public class WorldGrid implements Disposable {
 
 	private Model gridModel;
 	private ModelInstance gridInstance;
-	private final Vector3 gridPosition = new Vector3();
 
 	public WorldGrid(int gridSize, float tileSize) {
 		this.gridSize = gridSize;
@@ -39,16 +38,16 @@ public class WorldGrid implements Disposable {
 			float pos = i * tileSize - offset;
 			// Horizontal lines
 			builder.line(
-					new Vector3(-offset, 0.01f, pos),
+					new Vector3(-offset, 0f, pos),
 					Color.GRAY,
-					new Vector3(offset, 0.01f, pos),
+					new Vector3(offset, 0f, pos),
 					Color.GRAY
 			);
 			// Vertical lines
 			builder.line(
-					new Vector3(pos, 0.01f, -offset),
+					new Vector3(pos, 0f, -offset),
 					Color.GRAY,
-					new Vector3(pos, 0.01f, offset),
+					new Vector3(pos, 0f, offset),
 					Color.GRAY
 			);
 		}

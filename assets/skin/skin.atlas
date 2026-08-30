@@ -4,9 +4,18 @@ size: 512, 512
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
+button_checked
+  rotate: false
+  xy: 1, 137
+  size: 12, 12
+  split: 5, 5, 5, 5
+  pad: 0, 0, 0, 0
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
 button_flat
   rotate: false
-  xy: 95, 347
+  xy: 191, 347
   size: 12, 12
   split: 0, 0, 1, 0
   pad: 5, 5, 2, 2
@@ -15,44 +24,135 @@ button_flat
   index: -1
 checkbox_off
   rotate: false
-  xy: 1, 325
+  xy: 1, 187
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 checkbox_off_disabled
   rotate: false
-  xy: 27, 325
+  xy: 147, 343
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 checkbox_off_hover
   rotate: false
-  xy: 1, 343
+  xy: 121, 343
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 checkbox_on
   rotate: false
-  xy: 27, 343
+  xy: 61, 239
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 checkbox_on_disabled
   rotate: false
-  xy: 53, 343
+  xy: 1, 169
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 checkbox_on_hover
   rotate: false
-  xy: 1, 307
+  xy: 121, 325
   size: 24, 16
   orig: 24, 16
+  offset: 0, 0
+  index: -1
+checker_bg
+  rotate: false
+  xy: 87, 213
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+color_picker_slider_knob_h
+  rotate: false
+  xy: 137, 289
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+color_picker_slider_knob_v
+  rotate: false
+  xy: 147, 301
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+color_swatch
+  rotate: false
+  xy: 1, 151
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+color_swatch_new
+  rotate: false
+  xy: 27, 184
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+cp_circle_bg
+  rotate: false
+  xy: 121, 299
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+cp_circle_fg
+  rotate: false
+  xy: 87, 231
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+cp_preview_swatch_bg
+  rotate: false
+  xy: 1, 309
+  size: 58, 50
+  orig: 58, 50
+  offset: 0, 0
+  index: -1
+cp_preview_swatch_new
+  rotate: false
+  xy: 61, 309
+  size: 58, 50
+  orig: 58, 50
+  offset: 0, 0
+  index: -1
+cp_preview_swatch_old
+  rotate: false
+  xy: 1, 257
+  size: 58, 50
+  orig: 58, 50
+  offset: 0, 0
+  index: -1
+cp_preview_swatch_single
+  rotate: false
+  xy: 61, 257
+  size: 58, 50
+  orig: 58, 50
+  offset: 0, 0
+  index: -1
+cp_preview_swatch_single_bg
+  rotate: false
+  xy: 1, 205
+  size: 58, 50
+  orig: 58, 50
+  offset: 0, 0
+  index: -1
+decrease
+  rotate: false
+  xy: 121, 273
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
 font
@@ -69,21 +169,35 @@ font_header
   orig: 506, 85
   offset: 0, 0
   index: -1
+increase
+  rotate: false
+  xy: 27, 174
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
 panel_default
   rotate: false
-  xy: 79, 345
+  xy: 121, 283
   size: 14, 14
   split: 6, 6, 6, 6
-  pad: 0, 0, 0, 0
   orig: 14, 14
   offset: 0, 0
   index: -1
 panel_thin
   rotate: false
-  xy: 1, 290
+  xy: 147, 311
   size: 12, 12
   split: 5, 5, 5, 5
   orig: 12, 12
+  offset: 0, 0
+  index: -1
+pbar_bg
+  rotate: false
+  xy: 61, 213
+  size: 24, 24
+  split: 4, 4, 4, 4
+  orig: 24, 24
   offset: 0, 0
   index: -1
 pbar_h_knob
@@ -95,14 +209,14 @@ pbar_h_knob
   index: -1
 pbar_v_knob
   rotate: false
-  xy: 1, 304
+  xy: 27, 202
   size: 24, 1
   orig: 24, 1
   offset: 0, 0
   index: -1
 top_bar
   rotate: false
-  xy: 45, 311
+  xy: 165, 329
   size: 12, 12
   split: 4, 4, 4, 6
   orig: 12, 12
@@ -110,21 +224,21 @@ top_bar
   index: -1
 tree_minus
   rotate: false
-  xy: 53, 325
+  xy: 173, 343
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 tree_plus
   rotate: false
-  xy: 27, 307
+  xy: 147, 325
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 white-pixel
   rotate: false
-  xy: 27, 304
+  xy: 53, 202
   size: 1, 1
   orig: 1, 1
   offset: 0, 0

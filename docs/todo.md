@@ -1,4 +1,4 @@
 # TODO
 
-- Camera rotation / zoom
-- Particle preset loading
+- Editor settings impact / saving
+- Actual controller representation

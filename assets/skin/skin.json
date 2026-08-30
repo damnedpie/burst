@@ -26,6 +26,9 @@ Color: {
 	accent_default_pressed: {
 		hex: c98200ff
 	}
+	accent_green: {
+		hex: 00ff00ff
+	}
 	disabled: {
 		hex: a5a5a5ff
 	}
@@ -79,6 +82,22 @@ TintedDrawable: {
 		name: button_flat
 		color: accent_default_disabled
 	}
+	panel_default_default: {
+		name: panel_default
+		color: accent_default
+	}
+	panel_thin_default: {
+		name: panel_thin
+		color: accent_default
+	}
+	pbar_bg_default: {
+		name: pbar_bg
+		color: accent_default
+	}
+	button_checked_green: {
+		name: button_checked
+		color: accent_green
+	}
 	text_selection_pixel: {
 		name: white-pixel
 		color: accent_default
@@ -86,6 +105,14 @@ TintedDrawable: {
 	empty_pixel: {
 		name: white-pixel
 		color: empty
+	}
+}
+TiledDrawable: {
+	checker_bg_tiled: {
+		region: checker_bg
+		color: white
+		minWidth: 16
+		minHeight: 16
 	}
 }
 ButtonStyle: {
@@ -100,6 +127,12 @@ ButtonStyle: {
 		down: button_flat_default_pressed
 		over: button_flat_default_hover
 		disabled: button_flat_default_disabled
+	}
+	color_pick: {
+		up: button_checked
+		down: button_checked
+		over: button_checked
+		disabled: button_checked
 	}
 }
 CheckBoxStyle: {
@@ -118,6 +151,18 @@ ImageButtonStyle: {
 	default: {
 		parent: default
 	}
+	increase: {
+		parent: default
+		imageUp: increase
+	}
+	decrease: {
+		parent: default
+		imageUp: decrease
+	}
+	radio: {
+		parent: default
+		checked: button_checked_green
+	}
 }
 ImageTextButtonStyle: {
 	default: {
@@ -133,6 +178,48 @@ LabelStyle: {
 	header: {
 		font: font_header
 		fontColor: white
+	}
+}
+ListStyle: {
+	default: {
+		font: font_default
+		fontColorSelected: white
+		fontColorUnselected: pressed
+		selection: panel_thin_default
+	}
+}
+ProgressBarStyle: {
+	default-horizontal: {
+		background: pbar_bg_default
+		knobBefore: pbar_h_knob
+	}
+	default-vertical: {
+		background: pbar_bg_default
+		knobBefore: pbar_v_knob
+	}
+}
+ScrollPaneStyle: {
+	default: {
+		background: panel_thin_default
+		vScroll: panel_thin_default
+		vScrollKnob: pbar_v_knob
+	}
+}
+SelectBoxStyle: {
+	default: {
+		font: font_default
+		fontColor: white
+		background: button_flat_default
+		scrollStyle: default
+		listStyle: default
+	}
+}
+SliderStyle: {
+	default-horizontal: {
+		parent: default-horizontal
+	}
+	default-vertical: {
+		parent: default-vertical
 	}
 }
 TextButtonStyle: {
@@ -154,12 +241,24 @@ TextButtonStyle: {
 		focusedFontColor: white
 		disabledFontColor: disabled
 	}
+	default_flat_toggleable: {
+		parent: default_flat
+		font: font_default
+		fontColor: white
+		downFontColor: pressed
+		overFontColor: hover
+		focusedFontColor: white
+		disabledFontColor: disabled
+		checked: button_flat_default_pressed
+	}
 }
 TextFieldStyle: {
 	default: {
 		font: font_default
 		fontColor: white
 		disabledFontColor: disabled
+		background: panel_thin_default
+		cursor: text_selection_pixel
 		selection: text_selection_pixel
 		messageFontColor: hover
 	}
@@ -178,6 +277,35 @@ TreeStyle: {
 WindowStyle: {
 	default: {
 		titleFont: font_header
+	}
+}
+com.ray3k.stripe.PopColorPicker$PopColorPickerStyle: {
+	default: {
+		titleBarBackground: panel_thin_default
+		labelStyle: default
+		textButtonStyle: default
+		fileTextButtonStyle: default_flat_toggleable
+		scrollPaneStyle: default
+		colorSwatch: color_swatch
+		colorSwatchNew: color_swatch_new
+		colorSwatchPopBackground: panel_thin_default
+		previewSwatchBackground: cp_preview_swatch_bg
+		previewSwatchOld: cp_preview_swatch_old
+		previewSwatchNew: cp_preview_swatch_new
+		previewSwatchSingleBackground: cp_preview_swatch_single_bg
+		previewSwatchSingle: cp_preview_swatch_single
+		textFieldStyle: default
+		hexTextFieldStyle: default
+		colorSwatchPopPreview: color_swatch
+		colorSliderBackground: pbar_bg_default
+		colorSliderKnobHorizontal: color_picker_slider_knob_h
+		colorSliderKnobVertical: color_picker_slider_knob_v
+		colorKnobCircleBackground: cp_circle_bg
+		colorKnobCircleForeground: cp_circle_fg
+		radioButtonStyle: radio
+		increaseButtonStyle: increase
+		decreaseButtonStyle: decrease
+		checkerBackground: checker_bg_tiled
 	}
 }
 }

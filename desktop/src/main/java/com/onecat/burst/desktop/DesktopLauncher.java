@@ -18,10 +18,10 @@ public class DesktopLauncher {
 
 	private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
 		Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
-		configuration.setTitle("Burst Editor");
+		configuration.setTitle("Burst");
 		configuration.useVsync(true);
 		configuration.setForegroundFPS(Lwjgl3ApplicationConfiguration.getDisplayMode().refreshRate + 1);
-		configuration.setBackBufferConfig(8, 8, 8, 8, 16, 0, 2);
+		configuration.setBackBufferConfig(8, 8, 8, 8, 16, 0, 0);
 		configuration.setWindowedMode(1024, 768);
 		configuration.setMaximized(true);
 		configuration.setWindowIcon("logo512.png", "logo256.png", "logo128.png", "logo64.png", "logo32.png", "logo16.png");

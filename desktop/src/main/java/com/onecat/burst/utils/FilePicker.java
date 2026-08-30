@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 
 public class FilePicker {
 
-	enum Mode {
+	public enum Mode {
 		OPEN,
 		SAVE
 	}

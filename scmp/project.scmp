@@ -283,26 +283,6 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Github/burst/scmp/project_data/panel_default.9.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: panel_default
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: NINE_PATCH
-			hidden: false
-		}
-		{
 			file: C:/Github/burst/scmp/project_data/panel_thin.9.png
 			bgColor: {
 				r: 0
@@ -502,6 +482,446 @@ atlasData: {
 			type: TINTED_FROM_COLOR_DATA
 			hidden: false
 		}
+		{
+			file: C:/Github/burst/scmp/project_data/panel_default.9.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: panel_default
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: NINE_PATCH
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/panel_default.9.png
+			bgColor: {
+				r: 0
+				g: 0
+				b: 0
+				a: 1
+			}
+			tint: null
+			tintName: accent_default
+			name: panel_default_default
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TINTED_FROM_COLOR_DATA
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/panel_thin.9.png
+			bgColor: {
+				r: 0
+				g: 0
+				b: 0
+				a: 1
+			}
+			tint: null
+			tintName: accent_default
+			name: panel_thin_default
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TINTED_FROM_COLOR_DATA
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/pbar_bg.9.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: pbar_bg
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: NINE_PATCH
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/pbar_bg.9.png
+			bgColor: {
+				r: 0
+				g: 0
+				b: 0
+				a: 1
+			}
+			tint: null
+			tintName: accent_default
+			name: pbar_bg_default
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TINTED_FROM_COLOR_DATA
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/color_swatch.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: color_swatch
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/color_swatch_new.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: color_swatch_new
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/checker_bg.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: checker_bg
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/checker_bg.png
+			bgColor: {
+				r: 0
+				g: 0
+				b: 0
+				a: 1
+			}
+			tint: null
+			tintName: white
+			name: checker_bg_tiled
+			tiled: true
+			minWidth: 16
+			minHeight: 16
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TILED
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/increase.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: increase
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/decrease.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: decrease
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/button_checked.9.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: button_checked
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: NINE_PATCH
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/button_checked.9.png
+			bgColor: {
+				r: 0
+				g: 0
+				b: 0
+				a: 1
+			}
+			tint: null
+			tintName: accent_green
+			name: button_checked_green
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TINTED_FROM_COLOR_DATA
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/color_picker_slider_knob_h.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: color_picker_slider_knob_h
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/color_picker_slider_knob_v.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: color_picker_slider_knob_v
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/cp_preview_swatch_bg.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: cp_preview_swatch_bg
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/cp_preview_swatch_old.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: cp_preview_swatch_old
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/cp_preview_swatch_new.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: cp_preview_swatch_new
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/cp_preview_swatch_single_bg.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: cp_preview_swatch_single_bg
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/cp_preview_swatch_single.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: cp_preview_swatch_single
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/cp_circle_fg.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: cp_circle_fg
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/cp_circle_bg.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: cp_circle_bg
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: TEXTURE
+			hidden: false
+		}
 	]
 	fontDrawables: [
 		{
@@ -587,6 +1007,16 @@ jsonData: {
 				a: 1
 			}
 			name: accent_default_pressed
+		}
+		{
+			class: com.ray3k.skincomposer.data.ColorData
+			color: {
+				r: 0
+				g: 1
+				b: 0
+				a: 1
+			}
+			name: accent_green
 		}
 		{
 			class: com.ray3k.skincomposer.data.ColorData
@@ -922,7 +1352,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: selection
 						optional: false
-						value: null
+						value: panel_thin_default
 					}
 					down: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
@@ -957,7 +1387,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: background
 						optional: true
-						value: null
+						value: panel_thin_default
 					}
 					corner: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
@@ -981,13 +1411,13 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: vScroll
 						optional: true
-						value: null
+						value: panel_thin_default
 					}
 					vScrollKnob: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: vScrollKnob
 						optional: true
-						value: null
+						value: pbar_v_knob
 					}
 				}
 				deletable: false
@@ -1233,7 +1663,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: background
 						optional: false
-						value: null
+						value: pbar_bg_default
 					}
 					disabledBackground: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
@@ -1257,7 +1687,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: knobBefore
 						optional: true
-						value: null
+						value: pbar_h_knob
 					}
 					disabledKnobBefore: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
@@ -1290,7 +1720,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: background
 						optional: false
-						value: null
+						value: pbar_bg_default
 					}
 					disabledBackground: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
@@ -1426,7 +1856,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: background
 						optional: true
-						value: text_selection_pixel
+						value: button_flat_default
 					}
 					scrollStyle: {
 						type: com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle
@@ -1588,7 +2018,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: background
 						optional: true
-						value: null
+						value: panel_thin_default
 					}
 					focusedBackground: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
@@ -1606,7 +2036,7 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: cursor
 						optional: true
-						value: null
+						value: text_selection_pixel
 					}
 					selection: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
@@ -1976,6 +2406,429 @@ jsonData: {
 				deletable: false
 				parent: default
 			}
+			{
+				class: com.ray3k.skincomposer.data.StyleData
+				name: increase
+				clazz: com.badlogic.gdx.scenes.scene2d.ui.ImageButton
+				properties: {
+					imageUp: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageUp
+						optional: true
+						value: increase
+					}
+					imageDown: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageDown
+						optional: true
+						value: null
+					}
+					imageOver: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageOver
+						optional: true
+						value: null
+					}
+					imageDisabled: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageDisabled
+						optional: true
+						value: null
+					}
+					imageChecked: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageChecked
+						optional: true
+						value: null
+					}
+					imageCheckedDown: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageCheckedDown
+						optional: true
+						value: null
+					}
+					imageCheckedOver: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageCheckedOver
+						optional: true
+						value: null
+					}
+					up: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: up
+						optional: true
+						value: null
+					}
+					down: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: down
+						optional: true
+						value: null
+					}
+					over: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: over
+						optional: true
+						value: null
+					}
+					focused: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: focused
+						optional: true
+						value: null
+					}
+					disabled: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: disabled
+						optional: true
+						value: null
+					}
+					checked: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checked
+						optional: true
+						value: null
+					}
+					checkedOver: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedOver
+						optional: true
+						value: null
+					}
+					checkedDown: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedDown
+						optional: true
+						value: null
+					}
+					checkedFocused: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedFocused
+						optional: true
+						value: null
+					}
+					pressedOffsetX: {
+						type: float
+						name: pressedOffsetX
+						optional: true
+						value: 0
+					}
+					pressedOffsetY: {
+						type: float
+						name: pressedOffsetY
+						optional: true
+						value: 0
+					}
+					unpressedOffsetX: {
+						type: float
+						name: unpressedOffsetX
+						optional: true
+						value: 0
+					}
+					unpressedOffsetY: {
+						type: float
+						name: unpressedOffsetY
+						optional: true
+						value: 0
+					}
+					checkedOffsetX: {
+						type: float
+						name: checkedOffsetX
+						optional: true
+						value: 0
+					}
+					checkedOffsetY: {
+						type: float
+						name: checkedOffsetY
+						optional: true
+						value: 0
+					}
+				}
+				deletable: true
+				parent: default
+			}
+			{
+				class: com.ray3k.skincomposer.data.StyleData
+				name: decrease
+				clazz: com.badlogic.gdx.scenes.scene2d.ui.ImageButton
+				properties: {
+					imageUp: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageUp
+						optional: true
+						value: decrease
+					}
+					imageDown: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageDown
+						optional: true
+						value: null
+					}
+					imageOver: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageOver
+						optional: true
+						value: null
+					}
+					imageDisabled: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageDisabled
+						optional: true
+						value: null
+					}
+					imageChecked: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageChecked
+						optional: true
+						value: null
+					}
+					imageCheckedDown: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageCheckedDown
+						optional: true
+						value: null
+					}
+					imageCheckedOver: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageCheckedOver
+						optional: true
+						value: null
+					}
+					up: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: up
+						optional: true
+						value: null
+					}
+					down: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: down
+						optional: true
+						value: null
+					}
+					over: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: over
+						optional: true
+						value: null
+					}
+					focused: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: focused
+						optional: true
+						value: null
+					}
+					disabled: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: disabled
+						optional: true
+						value: null
+					}
+					checked: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checked
+						optional: true
+						value: null
+					}
+					checkedOver: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedOver
+						optional: true
+						value: null
+					}
+					checkedDown: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedDown
+						optional: true
+						value: null
+					}
+					checkedFocused: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedFocused
+						optional: true
+						value: null
+					}
+					pressedOffsetX: {
+						type: float
+						name: pressedOffsetX
+						optional: true
+						value: 0
+					}
+					pressedOffsetY: {
+						type: float
+						name: pressedOffsetY
+						optional: true
+						value: 0
+					}
+					unpressedOffsetX: {
+						type: float
+						name: unpressedOffsetX
+						optional: true
+						value: 0
+					}
+					unpressedOffsetY: {
+						type: float
+						name: unpressedOffsetY
+						optional: true
+						value: 0
+					}
+					checkedOffsetX: {
+						type: float
+						name: checkedOffsetX
+						optional: true
+						value: 0
+					}
+					checkedOffsetY: {
+						type: float
+						name: checkedOffsetY
+						optional: true
+						value: 0
+					}
+				}
+				deletable: true
+				parent: default
+			}
+			{
+				class: com.ray3k.skincomposer.data.StyleData
+				name: radio
+				clazz: com.badlogic.gdx.scenes.scene2d.ui.ImageButton
+				properties: {
+					imageUp: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageUp
+						optional: true
+						value: null
+					}
+					imageDown: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageDown
+						optional: true
+						value: null
+					}
+					imageOver: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageOver
+						optional: true
+						value: null
+					}
+					imageDisabled: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageDisabled
+						optional: true
+						value: null
+					}
+					imageChecked: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageChecked
+						optional: true
+						value: null
+					}
+					imageCheckedDown: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageCheckedDown
+						optional: true
+						value: null
+					}
+					imageCheckedOver: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: imageCheckedOver
+						optional: true
+						value: null
+					}
+					up: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: up
+						optional: true
+						value: null
+					}
+					down: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: down
+						optional: true
+						value: null
+					}
+					over: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: over
+						optional: true
+						value: null
+					}
+					focused: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: focused
+						optional: true
+						value: null
+					}
+					disabled: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: disabled
+						optional: true
+						value: null
+					}
+					checked: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checked
+						optional: true
+						value: button_checked_green
+					}
+					checkedOver: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedOver
+						optional: true
+						value: null
+					}
+					checkedDown: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedDown
+						optional: true
+						value: null
+					}
+					checkedFocused: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedFocused
+						optional: true
+						value: null
+					}
+					pressedOffsetX: {
+						type: float
+						name: pressedOffsetX
+						optional: true
+						value: 0
+					}
+					pressedOffsetY: {
+						type: float
+						name: pressedOffsetY
+						optional: true
+						value: 0
+					}
+					unpressedOffsetX: {
+						type: float
+						name: unpressedOffsetX
+						optional: true
+						value: 0
+					}
+					unpressedOffsetY: {
+						type: float
+						name: unpressedOffsetY
+						optional: true
+						value: 0
+					}
+					checkedOffsetX: {
+						type: float
+						name: checkedOffsetX
+						optional: true
+						value: 0
+					}
+					checkedOffsetY: {
+						type: float
+						name: checkedOffsetY
+						optional: true
+						value: 0
+					}
+				}
+				deletable: true
+				parent: default
+			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.TextTooltip: [
 			{
@@ -2140,6 +2993,105 @@ jsonData: {
 						name: disabled
 						optional: true
 						value: button_flat_default_disabled
+					}
+					checked: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checked
+						optional: true
+						value: null
+					}
+					checkedOver: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedOver
+						optional: true
+						value: null
+					}
+					checkedDown: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedDown
+						optional: true
+						value: null
+					}
+					checkedFocused: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedFocused
+						optional: true
+						value: null
+					}
+					pressedOffsetX: {
+						type: float
+						name: pressedOffsetX
+						optional: true
+						value: 0
+					}
+					pressedOffsetY: {
+						type: float
+						name: pressedOffsetY
+						optional: true
+						value: 0
+					}
+					unpressedOffsetX: {
+						type: float
+						name: unpressedOffsetX
+						optional: true
+						value: 0
+					}
+					unpressedOffsetY: {
+						type: float
+						name: unpressedOffsetY
+						optional: true
+						value: 0
+					}
+					checkedOffsetX: {
+						type: float
+						name: checkedOffsetX
+						optional: true
+						value: 0
+					}
+					checkedOffsetY: {
+						type: float
+						name: checkedOffsetY
+						optional: true
+						value: 0
+					}
+				}
+				deletable: true
+				parent: null
+			}
+			{
+				class: com.ray3k.skincomposer.data.StyleData
+				name: color_pick
+				clazz: com.badlogic.gdx.scenes.scene2d.ui.Button
+				properties: {
+					up: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: up
+						optional: true
+						value: button_checked
+					}
+					down: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: down
+						optional: true
+						value: button_checked
+					}
+					over: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: over
+						optional: true
+						value: button_checked
+					}
+					focused: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: focused
+						optional: true
+						value: null
+					}
+					disabled: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: disabled
+						optional: true
+						value: button_checked
 					}
 					checked: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
@@ -2525,9 +3477,438 @@ jsonData: {
 				deletable: true
 				parent: default_flat
 			}
+			{
+				class: com.ray3k.skincomposer.data.StyleData
+				name: default_flat_toggleable
+				clazz: com.badlogic.gdx.scenes.scene2d.ui.TextButton
+				properties: {
+					font: {
+						type: com.badlogic.gdx.graphics.g2d.BitmapFont
+						name: font
+						optional: false
+						value: font_default
+					}
+					fontColor: {
+						type: com.badlogic.gdx.graphics.Color
+						name: fontColor
+						optional: true
+						value: white
+					}
+					downFontColor: {
+						type: com.badlogic.gdx.graphics.Color
+						name: downFontColor
+						optional: true
+						value: pressed
+					}
+					overFontColor: {
+						type: com.badlogic.gdx.graphics.Color
+						name: overFontColor
+						optional: true
+						value: hover
+					}
+					focusedFontColor: {
+						type: com.badlogic.gdx.graphics.Color
+						name: focusedFontColor
+						optional: true
+						value: white
+					}
+					disabledFontColor: {
+						type: com.badlogic.gdx.graphics.Color
+						name: disabledFontColor
+						optional: true
+						value: disabled
+					}
+					checkedFontColor: {
+						type: com.badlogic.gdx.graphics.Color
+						name: checkedFontColor
+						optional: true
+						value: null
+					}
+					checkedDownFontColor: {
+						type: com.badlogic.gdx.graphics.Color
+						name: checkedDownFontColor
+						optional: true
+						value: null
+					}
+					checkedOverFontColor: {
+						type: com.badlogic.gdx.graphics.Color
+						name: checkedOverFontColor
+						optional: true
+						value: null
+					}
+					checkedFocusedFontColor: {
+						type: com.badlogic.gdx.graphics.Color
+						name: checkedFocusedFontColor
+						optional: true
+						value: null
+					}
+					up: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: up
+						optional: true
+						value: null
+					}
+					down: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: down
+						optional: true
+						value: null
+					}
+					over: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: over
+						optional: true
+						value: null
+					}
+					focused: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: focused
+						optional: true
+						value: null
+					}
+					disabled: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: disabled
+						optional: true
+						value: null
+					}
+					checked: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checked
+						optional: true
+						value: button_flat_default_pressed
+					}
+					checkedOver: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedOver
+						optional: true
+						value: null
+					}
+					checkedDown: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedDown
+						optional: true
+						value: null
+					}
+					checkedFocused: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: checkedFocused
+						optional: true
+						value: null
+					}
+					pressedOffsetX: {
+						type: float
+						name: pressedOffsetX
+						optional: true
+						value: 0
+					}
+					pressedOffsetY: {
+						type: float
+						name: pressedOffsetY
+						optional: true
+						value: 0
+					}
+					unpressedOffsetX: {
+						type: float
+						name: unpressedOffsetX
+						optional: true
+						value: 0
+					}
+					unpressedOffsetY: {
+						type: float
+						name: unpressedOffsetY
+						optional: true
+						value: 0
+					}
+					checkedOffsetX: {
+						type: float
+						name: checkedOffsetX
+						optional: true
+						value: 0
+					}
+					checkedOffsetY: {
+						type: float
+						name: checkedOffsetY
+						optional: true
+						value: 0
+					}
+				}
+				deletable: true
+				parent: default_flat
+			}
 		]
 	}
-	customClasses: []
+	customClasses: [
+		{
+			fullyQualifiedName: com.ray3k.stripe.PopColorPicker$PopColorPickerStyle
+			displayName: PopColorPickerStyle
+			styles: [
+				{
+					name: default
+					properties: [
+						{
+							name: titleBarBackground
+							type: DRAWABLE
+							value: panel_thin_default
+						}
+						{
+							name: labelStyle
+							type: STYLE
+							value: default
+						}
+						{
+							name: textButtonStyle
+							type: STYLE
+							value: default
+						}
+						{
+							name: fileTextButtonStyle
+							type: STYLE
+							value: default_flat_toggleable
+						}
+						{
+							name: scrollPaneStyle
+							type: STYLE
+							value: default
+						}
+						{
+							name: colorSwatch
+							type: DRAWABLE
+							value: color_swatch
+						}
+						{
+							name: colorSwatchNew
+							type: DRAWABLE
+							value: color_swatch_new
+						}
+						{
+							name: colorSwatchPopBackground
+							type: DRAWABLE
+							value: panel_thin_default
+						}
+						{
+							name: previewSwatchBackground
+							type: DRAWABLE
+							value: cp_preview_swatch_bg
+						}
+						{
+							name: previewSwatchOld
+							type: DRAWABLE
+							value: cp_preview_swatch_old
+						}
+						{
+							name: previewSwatchNew
+							type: DRAWABLE
+							value: cp_preview_swatch_new
+						}
+						{
+							name: previewSwatchSingleBackground
+							type: DRAWABLE
+							value: cp_preview_swatch_single_bg
+						}
+						{
+							name: previewSwatchSingle
+							type: DRAWABLE
+							value: cp_preview_swatch_single
+						}
+						{
+							name: textFieldStyle
+							type: STYLE
+							value: default
+						}
+						{
+							name: hexTextFieldStyle
+							type: STYLE
+							value: default
+						}
+						{
+							name: colorSwatchPopPreview
+							type: DRAWABLE
+							value: color_swatch
+						}
+						{
+							name: colorSliderBackground
+							type: DRAWABLE
+							value: pbar_bg_default
+						}
+						{
+							name: colorSliderKnobHorizontal
+							type: DRAWABLE
+							value: color_picker_slider_knob_h
+						}
+						{
+							name: colorSliderKnobVertical
+							type: DRAWABLE
+							value: color_picker_slider_knob_v
+						}
+						{
+							name: colorKnobCircleBackground
+							type: DRAWABLE
+							value: cp_circle_bg
+						}
+						{
+							name: colorKnobCircleForeground
+							type: DRAWABLE
+							value: cp_circle_fg
+						}
+						{
+							name: radioButtonStyle
+							type: STYLE
+							value: radio
+						}
+						{
+							name: increaseButtonStyle
+							type: STYLE
+							value: increase
+						}
+						{
+							name: decreaseButtonStyle
+							type: STYLE
+							value: decrease
+						}
+						{
+							name: checkerBackground
+							type: DRAWABLE
+							value: checker_bg_tiled
+						}
+					]
+					deletable: false
+				}
+			]
+			templateStyle: {
+				name: template
+				properties: [
+					{
+						name: titleBarBackground
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: labelStyle
+						type: STYLE
+						value: ""
+					}
+					{
+						name: textButtonStyle
+						type: STYLE
+						value: ""
+					}
+					{
+						name: fileTextButtonStyle
+						type: STYLE
+						value: ""
+					}
+					{
+						name: scrollPaneStyle
+						type: STYLE
+						value: ""
+					}
+					{
+						name: colorSwatch
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: colorSwatchNew
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: colorSwatchPopBackground
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: previewSwatchBackground
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: previewSwatchOld
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: previewSwatchNew
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: previewSwatchSingleBackground
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: previewSwatchSingle
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: textFieldStyle
+						type: STYLE
+						value: ""
+					}
+					{
+						name: hexTextFieldStyle
+						type: STYLE
+						value: ""
+					}
+					{
+						name: colorSwatchPopPreview
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: colorSliderBackground
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: colorSliderKnobHorizontal
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: colorSliderKnobVertical
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: colorKnobCircleBackground
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: colorKnobCircleForeground
+						type: DRAWABLE
+						value: null
+					}
+					{
+						name: radioButtonStyle
+						type: STYLE
+						value: ""
+					}
+					{
+						name: increaseButtonStyle
+						type: STYLE
+						value: ""
+					}
+					{
+						name: decreaseButtonStyle
+						type: STYLE
+						value: ""
+					}
+					{
+						name: checkerBackground
+						type: DRAWABLE
+						value: null
+					}
+				]
+				deletable: true
+			}
+			declareAfterUIclasses: true
+		}
+	]
 }
 preferences: {
 	simple-names: {
