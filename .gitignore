@@ -5,6 +5,9 @@ gradle-app.setting
 /core/build/
 /desktop/build/
 
+## Local stuff
+/test_pfx/
+
 ## Java:
 *.class
 *.war

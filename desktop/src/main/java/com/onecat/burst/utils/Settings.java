@@ -7,12 +7,12 @@ public class Settings {
 
 	private static Preferences preferences;
 
-	public static final int DEFAULT_FOV = 67;
-	public static final boolean DEFAULT_GRID_ENABLED = true;
-	public static final boolean DEFAULT_GIZMO_ENABLED = true;
-	public static final boolean DEFAULT_PRETTY_PRINT_ENABLED = true;
-	public static final String DEFAULT_OUTPUT_MODE = "minimal";
-	public static final String DEFAULT_BG_COLOR = "38384C";
+	public static final Setting<Integer> SET_FOV = new Setting<>("fov", 67);
+	public static final Setting<Boolean> SET_GRID_ENABLED = new Setting<>("grid_enabled", true);
+	public static final Setting<Boolean> SET_GIZMO_ENABLED = new Setting<>("gizmo_enabled", true);
+	public static final Setting<Boolean> SET_PRETTY_PRINT_ENABLED = new Setting<>("pretty_print_enabled", true);
+	public static final Setting<String> SET_OUTPUT_MODE = new Setting<>("output_mode", "minimal");
+	public static final Setting<String> SET_BG_COLOR = new Setting<>("bg_color", "38384C");
 
 	private static Preferences getPrefs() {
 		if (preferences == null)
@@ -20,39 +20,51 @@ public class Settings {
 		return preferences;
 	}
 
-	public static int getInteger(String key, int defValue) {
-		return getPrefs().getInteger(key, defValue);
+	public static class Setting<T> {
+
+		public final String key;
+		public final T defValue;
+
+		public Setting(String key, T defValue) {
+			this.key = key;
+			this.defValue = defValue;
+		}
+
 	}
 
-	public static String getString(String key, String defValue) {
-		return getPrefs().getString(key, defValue);
+	public static int getInteger(Setting<Integer> setting) {
+		return getPrefs().getInteger(setting.key, setting.defValue);
 	}
 
-	public static boolean getBoolean(String key, boolean defValue) {
-		return getPrefs().getBoolean(key, defValue);
+	public static String getString(Setting<String> setting) {
+		return getPrefs().getString(setting.key, setting.defValue);
 	}
 
-	public static float getFloat(String key, float defValue) {
-		return getPrefs().getFloat(key, defValue);
+	public static boolean getBoolean(Setting<Boolean> setting) {
+		return getPrefs().getBoolean(setting.key, setting.defValue);
 	}
 
-	public static void putInteger(String key, int value) {
-		getPrefs().putInteger(key, value);
+	public static float getFloat(Setting<Float> setting) {
+		return getPrefs().getFloat(setting.key, setting.defValue);
+	}
+
+	public static void putInteger(Setting<Integer> setting, int value) {
+		getPrefs().putInteger(setting.key, value);
 		getPrefs().flush();
 	}
 
-	public static void putString(String key, String value) {
-		getPrefs().putString(key, value);
+	public static void putString(Setting<String> setting, String value) {
+		getPrefs().putString(setting.key, value);
 		getPrefs().flush();
 	}
 
-	public static void putBoolean(String key, boolean value) {
-		getPrefs().putBoolean(key, value);
+	public static void putBoolean(Setting<Boolean> setting, boolean value) {
+		getPrefs().putBoolean(setting.key, value);
 		getPrefs().flush();
 	}
 
-	public static void putFloat(String key, float value) {
-		getPrefs().putFloat(key, value);
+	public static void putFloat(Setting<Float> setting, float value) {
+		getPrefs().putFloat(setting.key, value);
 		getPrefs().flush();
 	}
 

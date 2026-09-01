@@ -61,7 +61,7 @@ public class EditorPanel extends Table {
 
 		Label fovLabel = new Label("FOV", skin);
 		subTable.add(fovLabel);
-		TextField fovInput = new TextField(String.valueOf(Settings.getInteger("fov", Settings.DEFAULT_FOV)), skin);
+		TextField fovInput = new TextField(String.valueOf(Settings.getInteger(Settings.SET_FOV)), skin);
 		fovInput.setTextFieldFilter(new TextField.TextFieldFilter.DigitsOnlyFilter());
 		fovInput.addListener(new InputListener() {
 
@@ -116,7 +116,7 @@ public class EditorPanel extends Table {
 		Label bgColorLabel = new Label("Background color", skin);
 		subTable.add(bgColorLabel);
 		bgColorButton = new Button(skin.get("color_pick", Button.ButtonStyle.class));
-		bgColorButton.setColor(Color.valueOf(Settings.getString("bg_color", Settings.DEFAULT_BG_COLOR)));
+		bgColorButton.setColor(Color.valueOf(Settings.getString(Settings.SET_BG_COLOR)));
 		bgColorButton.addListener(new ChangeListener() {
 
 			@Override
@@ -129,7 +129,7 @@ public class EditorPanel extends Table {
 
 		CheckBox gridCheckbox = new CheckBox("Grid", skin);
 		gridCheckbox.setProgrammaticChangeEvents(false);
-		gridCheckbox.setChecked(Settings.getBoolean("grid_enabled", Settings.DEFAULT_GRID_ENABLED));
+		gridCheckbox.setChecked(Settings.getBoolean(Settings.SET_GRID_ENABLED));
 		gridCheckbox.align(Align.left);
 		gridCheckbox.addListener(new ChangeListener() {
 
@@ -142,7 +142,7 @@ public class EditorPanel extends Table {
 
 		CheckBox gizmoCheckbox = new CheckBox("Gizmo", skin);
 		gizmoCheckbox.setProgrammaticChangeEvents(false);
-		gizmoCheckbox.setChecked(Settings.getBoolean("gizmo_enabled", Settings.DEFAULT_GIZMO_ENABLED));
+		gizmoCheckbox.setChecked(Settings.getBoolean(Settings.SET_GIZMO_ENABLED));
 		gizmoCheckbox.align(Align.left);
 		gizmoCheckbox.addListener(new ChangeListener() {
 
@@ -156,7 +156,7 @@ public class EditorPanel extends Table {
 
 		CheckBox prettyPrintCheckbox = new CheckBox("Pretty print", skin);
 		prettyPrintCheckbox.setProgrammaticChangeEvents(false);
-		prettyPrintCheckbox.setChecked(Settings.getBoolean("pretty_print_enabled", Settings.DEFAULT_PRETTY_PRINT_ENABLED));
+		prettyPrintCheckbox.setChecked(Settings.getBoolean(Settings.SET_PRETTY_PRINT_ENABLED));
 		prettyPrintCheckbox.align(Align.left);
 		prettyPrintCheckbox.addListener(new ChangeListener() {
 
@@ -168,7 +168,7 @@ public class EditorPanel extends Table {
 		subTable.add(prettyPrintCheckbox);
 		SelectBox<String> outputModeSelectBox = new SelectBox<>(skin);
 		outputModeSelectBox.setItems("Output: JSON", "Output: JS", "Output: Minimal");
-		switch (Settings.getString("output_mode", Settings.DEFAULT_OUTPUT_MODE)) {
+		switch (Settings.getString(Settings.SET_OUTPUT_MODE)) {
 			case "json":
 				outputModeSelectBox.setSelectedIndex(0);
 				break;
@@ -215,7 +215,7 @@ public class EditorPanel extends Table {
 
 	private void onBackgroundColorPressed() {
 		if (colorPicker != null && !colorPicker.isHidden()) return;
-		colorPicker = new PopColorPicker(Color.valueOf(Settings.getString("bg_color", Settings.DEFAULT_BG_COLOR)), getSkin());
+		colorPicker = new PopColorPicker(Color.valueOf(Settings.getString(Settings.SET_BG_COLOR)), getSkin());
 		colorPicker.setBackground(getSkin().getDrawable("panel_default_default"));
 		colorPicker.addListener(new PopColorPicker.PopColorPickerListener() {
 

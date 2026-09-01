@@ -16,6 +16,8 @@ public class WorldGrid implements Disposable {
 	private Model gridModel;
 	private ModelInstance gridInstance;
 
+	public boolean visible = true;
+
 	public WorldGrid(int gridSize, float tileSize) {
 		this.gridSize = gridSize;
 		this.tileSize = tileSize;

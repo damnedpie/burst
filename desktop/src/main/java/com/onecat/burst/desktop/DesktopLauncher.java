@@ -21,8 +21,7 @@ public class DesktopLauncher {
 		configuration.setTitle("Burst");
 		configuration.useVsync(true);
 		configuration.setForegroundFPS(Lwjgl3ApplicationConfiguration.getDisplayMode().refreshRate + 1);
-		configuration.setBackBufferConfig(8, 8, 8, 8, 16, 0, 0);
-		configuration.setWindowedMode(1024, 768);
+		configuration.setWindowSizeLimits(1280, 960, 3840, 2160);
 		configuration.setMaximized(true);
 		configuration.setWindowIcon("logo512.png", "logo256.png", "logo128.png", "logo64.png", "logo32.png", "logo16.png");
 		return configuration;

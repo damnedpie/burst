@@ -1,4 +1,3 @@
 # TODO
 
-- Editor settings impact / saving
-- Actual controller representation
+- Controller properties editing

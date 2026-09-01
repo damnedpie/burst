@@ -7,6 +7,7 @@ import org.lwjgl.system.MemoryUtil;
 import org.lwjgl.util.nfd.NFDFilterItem;
 import org.lwjgl.util.nfd.NativeFileDialog;
 import java.nio.ByteBuffer;
+import java.util.Locale;
 
 public class FilePicker {
 
@@ -15,12 +16,12 @@ public class FilePicker {
 		SAVE
 	}
 
-	public static @Null String pick(Mode mode) {
+	public static @Null String pick(Mode mode, String fileDescription, String fileResolution) {
 		try (MemoryStack stack = MemoryStack.stackPush()) {
 			PointerBuffer outPath = stack.mallocPointer(1);
 			NFDFilterItem filterItem = NFDFilterItem.malloc(stack)
-					.name(stack.UTF8("Particle Effects (*.pfx)"))
-					.spec(stack.UTF8("*.pfx;*.PFX"));
+					.name(stack.UTF8(fileDescription))
+					.spec(stack.UTF8(String.format(Locale.ROOT, "*.%s;*.%s", fileResolution, fileResolution.toUpperCase(Locale.ROOT))));
 			NFDFilterItem.Buffer filterList = NFDFilterItem.malloc(1, stack);
 			filterList.put(0, filterItem);
 			String defaultPath = System.getProperty("user.home");

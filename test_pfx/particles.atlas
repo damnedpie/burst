@@ -1,9 +1,0 @@
-particles.png
-size:64,64
-repeat:none
-circle
-bounds:2,20,32,32
-quad4px
-bounds:36,48,4,4
-tnt
-bounds:2,2,16,16
