@@ -1,13 +1,25 @@
 {
 BitmapFont: {
-	font_default: {
+	font_header: {
+		file: font_header.fnt
+		scaledSize: -1
+		markupEnabled: false
+		flip: false
+	}
+	font_medium: {
 		file: font.fnt
 		scaledSize: -1
 		markupEnabled: true
 		flip: false
 	}
-	font_header: {
-		file: font_header.fnt
+	font_small: {
+		file: font_small.fnt
+		scaledSize: -1
+		markupEnabled: false
+		flip: false
+	}
+	font_tiny: {
+		file: font_tiny.fnt
 		scaledSize: -1
 		markupEnabled: false
 		flip: false
@@ -144,7 +156,7 @@ CheckBoxStyle: {
 		checkboxOver: checkbox_off_hover
 		checkboxOnDisabled: checkbox_on_disabled
 		checkboxOffDisabled: checkbox_off_disabled
-		font: font_default
+		font: font_small
 	}
 }
 ImageButtonStyle: {
@@ -167,22 +179,26 @@ ImageButtonStyle: {
 ImageTextButtonStyle: {
 	default: {
 		parent: default
-		font: font_default
+		font: font_small
 	}
 }
 LabelStyle: {
 	default: {
-		font: font_default
+		font: font_medium
 		fontColor: white
 	}
 	header: {
 		font: font_header
 		fontColor: white
 	}
+	small: {
+		font: font_small
+		fontColor: white
+	}
 }
 ListStyle: {
 	default: {
-		font: font_default
+		font: font_small
 		fontColorSelected: white
 		fontColorUnselected: pressed
 		selection: panel_thin_default
@@ -207,7 +223,7 @@ ScrollPaneStyle: {
 }
 SelectBoxStyle: {
 	default: {
-		font: font_default
+		font: font_small
 		fontColor: white
 		background: button_flat_default
 		scrollStyle: default
@@ -225,7 +241,7 @@ SliderStyle: {
 TextButtonStyle: {
 	default: {
 		parent: default
-		font: font_default
+		font: font_small
 		fontColor: white
 		downFontColor: pressed
 		overFontColor: hover
@@ -234,7 +250,7 @@ TextButtonStyle: {
 	}
 	default_flat: {
 		parent: default_flat
-		font: font_default
+		font: font_small
 		fontColor: white
 		downFontColor: pressed
 		overFontColor: hover
@@ -243,7 +259,7 @@ TextButtonStyle: {
 	}
 	default_flat_toggleable: {
 		parent: default_flat
-		font: font_default
+		font: font_small
 		fontColor: white
 		downFontColor: pressed
 		overFontColor: hover
@@ -254,7 +270,7 @@ TextButtonStyle: {
 }
 TextFieldStyle: {
 	default: {
-		font: font_default
+		font: font_small
 		fontColor: white
 		disabledFontColor: disabled
 		background: panel_thin_default

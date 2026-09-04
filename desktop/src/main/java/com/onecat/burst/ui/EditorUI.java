@@ -13,7 +13,8 @@ public class EditorUI implements Disposable {
 
 	private final TopBar topBar;
 	private final EditorPanel editorPanel;
-	private final ControllersPanel controllersPanel;
+	private final ProjectPanel projectPanel;
+	private ControllerPanel controllerPanel;
 
 	private float uiOpacity = 0.7f;
 
@@ -46,8 +47,8 @@ public class EditorUI implements Disposable {
 
 	public EditorUI(Skin skin, Stage stage) {
 		stage.addActor(topBar = new TopBar(skin));
-		stage.addActor(editorPanel = new EditorPanel(skin, stage));
-		stage.addActor(controllersPanel = new ControllersPanel(skin));
+		stage.addActor(editorPanel = new EditorPanel(skin));
+		stage.addActor(projectPanel = new ProjectPanel(skin));
 		createUICallbacks();
 		setUiOpacity(uiOpacity);
 	}
@@ -56,7 +57,8 @@ public class EditorUI implements Disposable {
 		uiOpacity = opacity;
 		topBar.setOpacity(uiOpacity);
 		editorPanel.setOpacity(uiOpacity);
-		controllersPanel.setOpacity(uiOpacity);
+		projectPanel.setOpacity(uiOpacity);
+		if (controllerPanel != null) controllerPanel.setOpacity(uiOpacity);
 	}
 
 	public void addListener(EventListener listener) {
@@ -68,11 +70,21 @@ public class EditorUI implements Disposable {
 	}
 
 	public void updateControllers(Array<ParticleController> controllers) {
-		controllersPanel.updateControllers(controllers);
+		projectPanel.updateControllers(controllers);
 	}
 
 	public void setAtlasPreviewImage(TextureRegion region) {
-		controllersPanel.setAtlasPreviewImage(region);
+		projectPanel.setAtlasPreviewImage(region);
+	}
+
+	public void setEditedController(ParticleController controller) {
+		if (controllerPanel != null) {
+			controllerPanel.remove();
+		}
+		if (controller != null) {
+			topBar.getStage().addActor(controllerPanel = new ControllerPanel(controller, topBar.getSkin()));
+			controllerPanel.setOpacity(uiOpacity);
+		}
 	}
 
 	private void createUICallbacks() {
@@ -135,7 +147,7 @@ public class EditorUI implements Disposable {
 				for (EventListener listener : getListeners()) listener.onOutputStyleChanged(outputStyle);
 			}
 		});
-		controllersPanel.addListener(new ControllersPanel.EventListener() {
+		projectPanel.addListener(new ProjectPanel.EventListener() {
 
 			@Override
 			public void onAddNew(String typeName) {

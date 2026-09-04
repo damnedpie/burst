@@ -10,11 +10,12 @@ import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
 import com.badlogic.gdx.utils.*;
+import com.onecat.burst.utils.UserInput;
 import com.onecat.burst.world.ParticleManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControllersPanel extends Table {
+public class ProjectPanel extends Table {
 
 	private float opacity = 0.9f;
 	private final ScrollPane controllersScroll;
@@ -37,10 +38,10 @@ public class ControllersPanel extends Table {
 
 	private final List<EventListener> listeners = new ArrayList<>();
 
-	public ControllersPanel(Skin skin) {
+	public ProjectPanel(Skin skin) {
 		super(skin);
 		TextButton.TextButtonStyle flatStyle = getSkin().get("default_flat", TextButton.TextButtonStyle.class);
-		setName("ControllersPanel");
+		setName("ProjectPanel");
 		setTouchable(Touchable.enabled);
 		addCaptureListener(new InputListener() {
 
@@ -141,7 +142,7 @@ public class ControllersPanel extends Table {
 		Table table = new Table();
 		table.defaults().fillY().uniformY().space(4f).minWidth(56f).growX();
 		TextField nameField = new TextField(name, getSkin());
-		nameField.setTextFieldFilter((textField, c) -> Character.isLetterOrDigit(c) || c == '-' || c == '_');
+		nameField.setTextFieldFilter(UserInput.stringFilter());
 		nameField.addListener(new InputListener() {
 
 			@Override
@@ -166,10 +167,10 @@ public class ControllersPanel extends Table {
 				}
 			}
 		});
-		table.add(nameField).maxWidth(148f);
-		Label typeLabel = new Label(typeName, getSkin());
+		table.add(nameField).maxWidth(114f);
+		Label typeLabel = new Label(typeName, getSkin().get("small", Label.LabelStyle.class));
 		typeLabel.setAlignment(Align.center);
-		table.add(typeLabel);
+		table.add(typeLabel).width(100f);
 		CheckBox visibleBox = new CheckBox("Visible", getSkin());
 		visibleBox.setChecked(isVisible);
 		visibleBox.addListener(new ChangeListener() {

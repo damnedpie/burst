@@ -1,6 +1,5 @@
 package com.onecat.burst.ui;
 
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.MathUtils;
@@ -9,8 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.FocusListener;
 import com.badlogic.gdx.utils.Align;
-import com.onecat.burst.utils.InputChecks;
 import com.onecat.burst.utils.Settings;
+import com.onecat.burst.utils.UserInput;
 import com.ray3k.stripe.PopColorPicker;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +36,7 @@ public class EditorPanel extends Table {
 
 	private final List<EventListener> listeners = new ArrayList<>();
 
-	public EditorPanel(Skin skin, Stage stage) {
+	public EditorPanel(Skin skin) {
 		super(skin);
 		setName("EditorPanel");
 		setTouchable(Touchable.enabled);
@@ -62,18 +61,8 @@ public class EditorPanel extends Table {
 		Label fovLabel = new Label("FOV", skin);
 		subTable.add(fovLabel);
 		TextField fovInput = new TextField(String.valueOf(Settings.getInteger(Settings.SET_FOV)), skin);
-		fovInput.setTextFieldFilter(new TextField.TextFieldFilter.DigitsOnlyFilter());
-		fovInput.addListener(new InputListener() {
-
-			@Override
-			public boolean keyDown(InputEvent event, int keycode) {
-				if (keycode == Input.Keys.ENTER || keycode == Input.Keys.NUMPAD_ENTER) {
-					getStage().setKeyboardFocus(null);
-					return true;
-				}
-				return false;
-			}
-		});
+		fovInput.setTextFieldFilter(UserInput.integerFilter());
+		fovInput.addListener(UserInput.confirmInputListener(fovInput));
 		fovInput.addListener(new FocusListener() {
 
 			@Override
@@ -89,18 +78,8 @@ public class EditorPanel extends Table {
 		Label deltaLabel = new Label("Delta multiplier", skin);
 		subTable.add(deltaLabel);
 		TextField deltaInput = new TextField("1.0", skin);
-		deltaInput.setTextFieldFilter((textField, c) -> Character.isDigit(c) || c == '.');
-		deltaInput.addListener(new InputListener() {
-
-			@Override
-			public boolean keyDown(InputEvent event, int keycode) {
-				if (keycode == Input.Keys.ENTER || keycode == Input.Keys.NUMPAD_ENTER) {
-					getStage().setKeyboardFocus(null);
-					return true;
-				}
-				return false;
-			}
-		});
+		deltaInput.setTextFieldFilter(UserInput.floatFilter());
+		deltaInput.addListener(UserInput.confirmInputListener(deltaInput));
 		deltaInput.addListener(new FocusListener() {
 
 			@Override
@@ -241,7 +220,7 @@ public class EditorPanel extends Table {
 	}
 
 	private void onFovEdited(TextField input) {
-		if (InputChecks.isInteger(input.getText())) {
+		if (UserInput.isInteger(input.getText())) {
 			int newFov = MathUtils.clamp(Integer.parseInt(input.getText()), 30, 120);
 			input.setText(String.valueOf(newFov));
 			for (EventListener listener : getEventListeners()) listener.onFovChanged(newFov);
@@ -249,7 +228,7 @@ public class EditorPanel extends Table {
 	}
 
 	private void onDeltaEdited(TextField input) {
-		if (InputChecks.isFloat(input.getText())) {
+		if (UserInput.isFloat(input.getText())) {
 			float newDelta = MathUtils.clamp(Float.parseFloat(input.getText()), 0.01f, 10.0f);
 			input.setText(String.valueOf(newDelta));
 			for (EventListener listener : getEventListeners()) listener.onDeltaMultiplierChanged(newDelta);

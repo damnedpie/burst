@@ -6,7 +6,7 @@ filter: Linear, Linear
 repeat: none
 button_checked
   rotate: false
-  xy: 1, 137
+  xy: 1, 45
   size: 12, 12
   split: 5, 5, 5, 5
   pad: 0, 0, 0, 0
@@ -15,7 +15,7 @@ button_checked
   index: -1
 button_flat
   rotate: false
-  xy: 191, 347
+  xy: 191, 255
   size: 12, 12
   split: 0, 0, 1, 0
   pad: 5, 5, 2, 2
@@ -24,133 +24,133 @@ button_flat
   index: -1
 checkbox_off
   rotate: false
-  xy: 1, 187
+  xy: 1, 95
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 checkbox_off_disabled
   rotate: false
-  xy: 147, 343
+  xy: 147, 251
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 checkbox_off_hover
   rotate: false
-  xy: 121, 343
+  xy: 121, 251
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 checkbox_on
   rotate: false
-  xy: 61, 239
+  xy: 61, 147
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 checkbox_on_disabled
   rotate: false
-  xy: 1, 169
+  xy: 1, 77
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 checkbox_on_hover
   rotate: false
-  xy: 121, 325
+  xy: 121, 233
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 checker_bg
   rotate: false
-  xy: 87, 213
+  xy: 87, 121
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 color_picker_slider_knob_h
   rotate: false
-  xy: 137, 289
+  xy: 137, 197
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
 color_picker_slider_knob_v
   rotate: false
-  xy: 147, 301
+  xy: 147, 209
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
 color_swatch
   rotate: false
-  xy: 1, 151
+  xy: 1, 59
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 color_swatch_new
   rotate: false
-  xy: 27, 184
+  xy: 27, 92
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 cp_circle_bg
   rotate: false
-  xy: 121, 299
+  xy: 121, 207
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 cp_circle_fg
   rotate: false
-  xy: 87, 231
+  xy: 87, 139
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 cp_preview_swatch_bg
   rotate: false
-  xy: 1, 309
+  xy: 1, 217
   size: 58, 50
   orig: 58, 50
   offset: 0, 0
   index: -1
 cp_preview_swatch_new
   rotate: false
-  xy: 61, 309
+  xy: 61, 217
   size: 58, 50
   orig: 58, 50
   offset: 0, 0
   index: -1
 cp_preview_swatch_old
   rotate: false
-  xy: 1, 257
+  xy: 1, 165
   size: 58, 50
   orig: 58, 50
   offset: 0, 0
   index: -1
 cp_preview_swatch_single
   rotate: false
-  xy: 61, 257
+  xy: 61, 165
   size: 58, 50
   orig: 58, 50
   offset: 0, 0
   index: -1
 cp_preview_swatch_single_bg
   rotate: false
-  xy: 1, 205
+  xy: 1, 113
   size: 58, 50
   orig: 58, 50
   offset: 0, 0
   index: -1
 decrease
   rotate: false
-  xy: 121, 273
+  xy: 121, 181
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
@@ -169,16 +169,30 @@ font_header
   orig: 506, 85
   offset: 0, 0
   index: -1
+font_small
+  rotate: false
+  xy: 1, 309
+  size: 506, 50
+  orig: 506, 50
+  offset: 0, 0
+  index: -1
+font_tiny
+  rotate: false
+  xy: 1, 269
+  size: 506, 38
+  orig: 506, 38
+  offset: 0, 0
+  index: -1
 increase
   rotate: false
-  xy: 27, 174
+  xy: 27, 82
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
 panel_default
   rotate: false
-  xy: 121, 283
+  xy: 121, 191
   size: 14, 14
   split: 6, 6, 6, 6
   orig: 14, 14
@@ -186,7 +200,7 @@ panel_default
   index: -1
 panel_thin
   rotate: false
-  xy: 147, 311
+  xy: 147, 219
   size: 12, 12
   split: 5, 5, 5, 5
   orig: 12, 12
@@ -194,7 +208,7 @@ panel_thin
   index: -1
 pbar_bg
   rotate: false
-  xy: 61, 213
+  xy: 61, 121
   size: 24, 24
   split: 4, 4, 4, 4
   orig: 24, 24
@@ -209,14 +223,14 @@ pbar_h_knob
   index: -1
 pbar_v_knob
   rotate: false
-  xy: 27, 202
+  xy: 27, 110
   size: 24, 1
   orig: 24, 1
   offset: 0, 0
   index: -1
 top_bar
   rotate: false
-  xy: 165, 329
+  xy: 165, 237
   size: 12, 12
   split: 4, 4, 4, 6
   orig: 12, 12
@@ -224,21 +238,21 @@ top_bar
   index: -1
 tree_minus
   rotate: false
-  xy: 173, 343
+  xy: 173, 251
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 tree_plus
   rotate: false
-  xy: 147, 325
+  xy: 147, 233
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 white-pixel
   rotate: false
-  xy: 53, 202
+  xy: 53, 110
   size: 1, 1
   orig: 1, 1
   offset: 0, 0

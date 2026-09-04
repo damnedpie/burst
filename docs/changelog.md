@@ -1,5 +1,17 @@
 # Changelog
 
+## EditableGraph, DisplayComponents
+**Sep 5, 2026**
+- Added 2 more fonts for UI
+- Added ControllerPanel class which is the right-side panel for editing a single ParticleController
+- Outlined classes for different types of Influencers
+- Added DisplayComponent class which manages UI and manipulation of Influencer or Emitter components
+- Added EditableGraph UI class to edit scale/timeline values of different influencer components
+- Implemented RegularEmitterDisplay for displaying and editing RegularEmitter properties
+- Renamed InputChecks -> UserInput and added shortcuts there for TextField filters and input confirmation listener template
+- ControllersPanel renamed into ProjectPanel to avoid confusion
+- Forcing Adoptium Temurin Java 17 for Gradle
+
 ## Controllers management, atlas loading
 **Sep 2, 2026**
 - Consolidated all assets in assets folder root (there are not going to be as many enough assets to separate them into subfolders anyway)

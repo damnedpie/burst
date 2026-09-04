@@ -964,6 +964,46 @@ atlasData: {
 			type: FONT
 			hidden: false
 		}
+		{
+			file: C:/Github/burst/scmp/project_data/font_small.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: font_small
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: FONT
+			hidden: false
+		}
+		{
+			file: C:/Github/burst/scmp/project_data/font_tiny.png
+			bgColor: {
+				r: 1
+				g: 1
+				b: 1
+				a: 1
+			}
+			tint: null
+			tintName: null
+			name: font_tiny
+			tiled: false
+			minWidth: -1
+			minHeight: -1
+			customized: false
+			tenPatchData: null
+			tvgData: null
+			type: FONT
+			hidden: false
+		}
 	]
 }
 jsonData: {
@@ -1072,7 +1112,15 @@ jsonData: {
 	fonts: [
 		{
 			class: com.ray3k.skincomposer.data.FontData
-			name: font_default
+			name: font_header
+			flip: false
+			markupEnabled: false
+			scaling: -1
+			file: C:/Github/burst/scmp/project_data/font_header.fnt
+		}
+		{
+			class: com.ray3k.skincomposer.data.FontData
+			name: font_medium
 			flip: false
 			markupEnabled: true
 			scaling: -1
@@ -1080,11 +1128,19 @@ jsonData: {
 		}
 		{
 			class: com.ray3k.skincomposer.data.FontData
-			name: font_header
+			name: font_small
 			flip: false
 			markupEnabled: false
 			scaling: -1
-			file: C:/Github/burst/scmp/project_data/font_header.fnt
+			file: C:/Github/burst/scmp/project_data/font_small.fnt
+		}
+		{
+			class: com.ray3k.skincomposer.data.FontData
+			name: font_tiny
+			flip: false
+			markupEnabled: false
+			scaling: -1
+			file: C:/Github/burst/scmp/project_data/font_tiny.fnt
 		}
 	]
 	freeTypeFonts: []
@@ -1334,7 +1390,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.g2d.BitmapFont
 						name: font
 						optional: false
-						value: font_default
+						value: font_small
 					}
 					fontColorSelected: {
 						type: com.badlogic.gdx.graphics.Color
@@ -1470,7 +1526,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.g2d.BitmapFont
 						name: font
 						optional: false
-						value: font_default
+						value: font_small
 					}
 					fontColor: {
 						type: com.badlogic.gdx.graphics.Color
@@ -1832,7 +1888,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.g2d.BitmapFont
 						name: font
 						optional: false
-						value: font_default
+						value: font_small
 					}
 					fontColor: {
 						type: com.badlogic.gdx.graphics.Color
@@ -1938,7 +1994,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.g2d.BitmapFont
 						name: font
 						optional: false
-						value: font_default
+						value: font_medium
 					}
 					fontColor: {
 						type: com.badlogic.gdx.graphics.Color
@@ -1983,6 +2039,33 @@ jsonData: {
 				deletable: true
 				parent: null
 			}
+			{
+				class: com.ray3k.skincomposer.data.StyleData
+				name: small
+				clazz: com.badlogic.gdx.scenes.scene2d.ui.Label
+				properties: {
+					font: {
+						type: com.badlogic.gdx.graphics.g2d.BitmapFont
+						name: font
+						optional: false
+						value: font_small
+					}
+					fontColor: {
+						type: com.badlogic.gdx.graphics.Color
+						name: fontColor
+						optional: true
+						value: white
+					}
+					background: {
+						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
+						name: background
+						optional: true
+						value: null
+					}
+				}
+				deletable: true
+				parent: null
+			}
 		]
 		com.badlogic.gdx.scenes.scene2d.ui.TextField: [
 			{
@@ -1994,7 +2077,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.g2d.BitmapFont
 						name: font
 						optional: false
-						value: font_default
+						value: font_small
 					}
 					fontColor: {
 						type: com.badlogic.gdx.graphics.Color
@@ -2113,7 +2196,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.g2d.BitmapFont
 						name: font
 						optional: false
-						value: font_default
+						value: font_small
 					}
 					fontColor: {
 						type: com.badlogic.gdx.graphics.Color
@@ -3168,7 +3251,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.g2d.BitmapFont
 						name: font
 						optional: false
-						value: font_default
+						value: font_small
 					}
 					fontColor: {
 						type: com.badlogic.gdx.graphics.Color
@@ -3327,7 +3410,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.g2d.BitmapFont
 						name: font
 						optional: false
-						value: font_default
+						value: font_small
 					}
 					fontColor: {
 						type: com.badlogic.gdx.graphics.Color
@@ -3486,7 +3569,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.g2d.BitmapFont
 						name: font
 						optional: false
-						value: font_default
+						value: font_small
 					}
 					fontColor: {
 						type: com.badlogic.gdx.graphics.Color
@@ -3928,7 +4011,7 @@ preferences: {
 	}
 	last-import-export-path: {
 		class: java.lang.String
-		value: C:/Github/burst/assets/skin/skin.json
+		value: C:/Github/burst/assets/skin.json
 	}
 	export-hex: {
 		class: java.lang.Boolean

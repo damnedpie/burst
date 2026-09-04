@@ -8,11 +8,13 @@ import com.badlogic.gdx.graphics.g3d.particles.emitters.Emitter;
 import com.badlogic.gdx.graphics.g3d.particles.emitters.RegularEmitter;
 import com.badlogic.gdx.graphics.g3d.utils.DefaultShaderProvider;
 import com.badlogic.gdx.graphics.g3d.utils.DepthShaderProvider;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.onecat.burst.ui.EditorUI;
+import com.onecat.burst.ui.displays.EditableGraph;
 import com.onecat.burst.utils.*;
 import com.onecat.burst.world.*;
 import net.mgsx.gltf.loaders.glb.GLBLoader;
@@ -71,6 +73,7 @@ public class Main implements ApplicationListener {
 		particleManager.createCleanSession();
 		editorUI.updateControllers(particleManager.getEffect().getControllers());
 		bgColor.set(Color.valueOf(Settings.getString(Settings.SET_BG_COLOR)));
+		EditableGraph.shapeRenderer = new ShapeRenderer();
 		Gdx.graphics.setTitle("Burst | unsaved project");
 	}
 
@@ -126,6 +129,10 @@ public class Main implements ApplicationListener {
 		sceneManager.dispose();
 		editorUI.dispose();
 		particleManager.dispose();
+		if (EditableGraph.shapeRenderer != null) {
+			EditableGraph.shapeRenderer.dispose();
+			EditableGraph.shapeRenderer = null;
+		}
 	}
 
 	private void onTextureChanged(String name, TextureRegion region) {
@@ -136,7 +143,6 @@ public class Main implements ApplicationListener {
 		particleManager.createCleanSession();
 		editorUI.updateControllers(particleManager.getEffect().getControllers());
 		Gdx.graphics.setTitle("Burst | unsaved project");
-
 	}
 
 	private void onOpenFilePressed() {
@@ -177,7 +183,7 @@ public class Main implements ApplicationListener {
 	}
 
 	private void onControllerEdit(String name) {
-
+		editorUI.setEditedController(particleManager.getEffect().findController(name));
 	}
 
 	private void onControllerClone(String name) {
