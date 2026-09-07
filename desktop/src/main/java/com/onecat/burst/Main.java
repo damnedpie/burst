@@ -135,13 +135,19 @@ public class Main implements ApplicationListener {
 		}
 	}
 
+	public static ParticleManager getParticleManager() {
+		return ((Main) Gdx.app.getApplicationListener()).particleManager;
+	}
+
 	private void onTextureChanged(String name, TextureRegion region) {
 		editorUI.setAtlasPreviewImage(region);
+		editorUI.updateAtlas(name, particleManager.getAtlas());
 	}
 
 	private void onNewFilePressed() {
 		particleManager.createCleanSession();
 		editorUI.updateControllers(particleManager.getEffect().getControllers());
+		editorUI.setEditedController(null);
 		Gdx.graphics.setTitle("Burst | unsaved project");
 	}
 
@@ -151,6 +157,7 @@ public class Main implements ApplicationListener {
 		Gdx.graphics.setTitle("Burst | " + filePath);
 		particleManager.loadPfx(Gdx.files.absolute(filePath));
 		editorUI.updateControllers(particleManager.getEffect().getControllers());
+		editorUI.setEditedController(null);
 	}
 
 	private void onSaveFilePressed() {
@@ -216,6 +223,7 @@ public class Main implements ApplicationListener {
 			return;
 		}
 		particleManager.getEffect().findController(oldName).name = newName;
+		editorUI.updateControllers(particleManager.getEffect().getControllers());
 		Log.l("Renamed \"%s\" to \"%s\"", oldName, newName);
 	}
 

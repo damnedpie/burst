@@ -1,5 +1,16 @@
 # Changelog
 
+## Region Influencer done
+**Sep 7, 2026**
+- Now Burst uses an atlas for empty projects by default
+- Controller editing menu gets closed upon loading a project or creating a new one
+- Added an abstraction layer for all influencer displays that handles common UI settings, header and folding/unfolding
+- Fixed a bug in EditableGraph when points deletion was not synced with Controller
+- Implemented RegionInfluencerDisplay supporting all 3 types of RegionInfluencer (Single, Random, Animated)
+- Implemented ListPicker UI component for picking multiple items from a list and arranging their order
+- ControllerPanel now adequately reacts to controller deletion and renaming
+- Removed source textures from SkinComposer project directory
+
 ## EditableGraph, DisplayComponents
 **Sep 5, 2026**
 - Added 2 more fonts for UI

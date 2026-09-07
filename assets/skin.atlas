@@ -190,6 +190,13 @@ increase
   orig: 8, 8
   offset: 0, 0
   index: -1
+left
+  rotate: false
+  xy: 179, 241
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
 panel_default
   rotate: false
   xy: 121, 191
@@ -226,6 +233,13 @@ pbar_v_knob
   xy: 27, 110
   size: 24, 1
   orig: 24, 1
+  offset: 0, 0
+  index: -1
+right
+  rotate: false
+  xy: 205, 259
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
 top_bar

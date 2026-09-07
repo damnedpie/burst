@@ -1,21 +1,28 @@
 package com.onecat.burst.ui;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g3d.particles.ParticleController;
 import com.badlogic.gdx.graphics.g3d.particles.emitters.RegularEmitter;
+import com.badlogic.gdx.graphics.g3d.particles.influencers.RegionInfluencer;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.utils.Align;
-import com.onecat.burst.ui.displays.EditableGraph;
-import com.onecat.burst.ui.displays.RegularEmitterDisplay;
+import com.badlogic.gdx.utils.Array;
+import com.onecat.burst.ui.displays.*;
 import java.util.Locale;
 
 public class ControllerPanel extends Table {
 
 	private float opacity = 0.9f;
+	public final String controllerName;
+
+	private final Table controllerDisplaysTable;
+	private final Array<ControllerComponentDisplay> displays = new Array<>();
 
 	public ControllerPanel(ParticleController controller, Skin skin) {
 		super(skin);
+		controllerName = controller.name;
 		setName("ControllerPanel");
 		setBackground("panel_default_default");
 		setTouchable(Touchable.enabled);
@@ -32,7 +39,7 @@ public class ControllerPanel extends Table {
 		Label headerLabel = new Label(String.format(Locale.ROOT, "Editing %s", controller.name), skin.get("header", Label.LabelStyle.class));
 		headerLabel.setAlignment(Align.center);
 		add(headerLabel).row();
-		Table controllerDisplaysTable = new Table();
+		controllerDisplaysTable = new Table();
 		controllerDisplaysTable.defaults().growX().space(8f);
 		controllerDisplaysTable.top();
 		ScrollPane scroll = new ScrollPane(controllerDisplaysTable);
@@ -53,7 +60,9 @@ public class ControllerPanel extends Table {
 			}
 		});
 		add(scroll).grow();
-		controllerDisplaysTable.add(new RegularEmitterDisplay((RegularEmitter) controller.emitter, getSkin()));
+
+		addDisplay(new RegularEmitterDisplay((RegularEmitter) controller.emitter, getSkin())).row();
+		addDisplay(new RegionInfluencerDisplay(controller, controller.findInfluencer(RegionInfluencer.class), getSkin()));
 		/* Billboard Controller and PointSprite Controller have following Influencers
 		 * Regular Emitter (always)
 		 * Region Influencer (always)
@@ -112,8 +121,21 @@ public class ControllerPanel extends Table {
 
 	}
 
+	public void updateAtlas(String name, TextureAtlas atlas) {
+		for (ControllerComponentDisplay display : displays) {
+			if (display instanceof RegionInfluencerDisplay reg) {
+				reg.refreshAtlas();
+			}
+		}
+	}
+
 	public void setOpacity(float opacity) {
 		this.opacity = opacity;
+	}
+
+	private Cell<ControllerComponentDisplay> addDisplay(ControllerComponentDisplay display) {
+		displays.add(display);
+		return controllerDisplaysTable.add(display);
 	}
 
 	@Override

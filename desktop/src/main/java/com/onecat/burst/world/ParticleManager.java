@@ -1,5 +1,6 @@
 package com.onecat.burst.world;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.resolvers.AbsoluteFileHandleResolver;
 import com.badlogic.gdx.files.FileHandle;
@@ -48,7 +49,8 @@ public class ParticleManager implements Disposable {
 
 	public ParticleManager(Camera camera) {
 		am = new AssetManager();
-		am.load("particle.png", Texture.class);
+		am.load("burst_test_particles.atlas", TextureAtlas.class);
+		am.load("burst_test_particles.png", Texture.class);
 		am.finishLoading();
 		ParticleEffectLoader loader = new ParticleEffectLoader(new AbsoluteFileHandleResolver());
 		am.setLoader(ParticleEffect.class, loader);
@@ -58,13 +60,13 @@ public class ParticleManager implements Disposable {
 		billboardParticleBatch.getBlendingAttribute().sourceFunction = GL20.GL_SRC_ALPHA;
 		billboardParticleBatch.getBlendingAttribute().destFunction = GL20.GL_ONE_MINUS_SRC_ALPHA;
 		billboardParticleBatch.setCamera(camera);
-		billboardParticleBatch.setTexture(am.get("particle.png", Texture.class));
+		billboardParticleBatch.setTexture(am.get("burst_test_particles.png", Texture.class));
 		particleSystem.add(billboardParticleBatch);
 		pointSpriteParticleBatch = new PointSpriteParticleBatch();
 		pointSpriteParticleBatch.getBlendingAttribute().sourceFunction = GL20.GL_SRC_ALPHA;
 		pointSpriteParticleBatch.getBlendingAttribute().destFunction = GL20.GL_ONE_MINUS_SRC_ALPHA;
 		pointSpriteParticleBatch.setCamera(camera);
-		pointSpriteParticleBatch.setTexture(am.get("particle.png", Texture.class));
+		pointSpriteParticleBatch.setTexture(am.get("burst_test_particles.png", Texture.class));
 		particleSystem.add(pointSpriteParticleBatch);
 		modelInstanceParticleBatch = new ModelInstanceParticleBatch();
 		particleSystem.add(modelInstanceParticleBatch);
@@ -80,7 +82,7 @@ public class ParticleManager implements Disposable {
 
 	public void createCleanSession() {
 		cleanupEverything();
-		setAtlas(null);
+		setAtlas("burst_test_particles.atlas");
 		effect = new ParticleEffect();
 		addDefaultBillboardController();
 		effect.init();
@@ -105,7 +107,7 @@ public class ParticleManager implements Disposable {
 		if (assetsSection != null) {
 			for (JsonValue asset : assetsSection) {
 				if (asset.getString("type").equals("com.badlogic.gdx.graphics.g2d.TextureAtlas")) {
-					setAtlas(asset.getString("filename"));
+					setAtlas(asset.getString("filename").replaceAll("\\\\", "/"), false);
 					break;
 				}
 			}
@@ -124,6 +126,19 @@ public class ParticleManager implements Disposable {
 	}
 
 	public void savePfx(FileHandle fileHandle) {
+		// If project uses default Burst atlas and gets saved, make a copy of the atlas in target destination and link the atlas
+		if (atlasName.equals("burst_test_particles.atlas")) {
+			FileHandle defaultAtlas = Gdx.files.internal("burst_test_particles.atlas");
+			defaultAtlas.copyTo(fileHandle.parent());
+			FileHandle defaultTexture = Gdx.files.internal("burst_test_particles.png");
+			defaultTexture.copyTo(fileHandle.parent());
+			setAtlas(fileHandle.parent().path() + "/burst_test_particles.atlas", false);
+			for (ParticleController controller : effect.getControllers()) {
+				RegionInfluencer regionInfluencer = controller.findInfluencer(RegionInfluencer.class);
+				if (regionInfluencer == null) continue;
+				regionInfluencer.atlasName = atlasName;
+			}
+		}
 		boolean prettyPrint = Settings.getBoolean(Settings.SET_PRETTY_PRINT_ENABLED);
 		JsonWriter.OutputType outputType = switch (Settings.getString(Settings.SET_OUTPUT_MODE)) {
 			case "json" -> JsonWriter.OutputType.json;
@@ -196,6 +211,10 @@ public class ParticleManager implements Disposable {
 	}
 
 	public void setAtlas(@Null String atlasName) {
+		setAtlas(atlasName, true);
+	}
+
+	public void setAtlas(@Null String atlasName, boolean forceUpdate) {
 		cleanupAtlas();
 		this.atlasName = atlasName;
 		if (atlasName != null) {
@@ -204,6 +223,7 @@ public class ParticleManager implements Disposable {
 			textureAtlas = am.get(atlasName, TextureAtlas.class);
 			billboardParticleBatch.setTexture(textureAtlas.getTextures().first());
 			pointSpriteParticleBatch.setTexture(textureAtlas.getTextures().first());
+			if (forceUpdate) forceUpdateAtlasRegions();
 			for (EventListener listener : getListeners())
 				listener.onTextureChanged(atlasName, new TextureRegion(textureAtlas.getTextures().first()));
 		}
@@ -213,25 +233,79 @@ public class ParticleManager implements Disposable {
 		}
 	}
 
+	public TextureAtlas getAtlas() {
+		return textureAtlas;
+	}
+
+	public String getAtlasName() {
+		return atlasName;
+	}
+
 	public void replaceAtlas(String atlasName) {
 		if (Objects.equals(atlasName, this.atlasName)) return;
 		setAtlas(atlasName);
-		forceUpdateAtlasRegions();
+	}
+
+	public void replaceRegionInfluencerWithSingle(String controllerName, String regionName) {
+		ParticleController controller = effect.findController(controllerName);
+		RegionInfluencer.Single influencer = new RegionInfluencer.Single(textureAtlas.findRegion(regionName));
+		influencer.setAtlasName(atlasName);
+		controller.replaceInfluencer(RegionInfluencer.class, influencer);
+		controller.init();
+	}
+
+	public void replaceRegionInfluencerWithRandom(String controllerName, String... regionNames) {
+		ParticleController controller = effect.findController(controllerName);
+		RegionInfluencer.Random influencer = new RegionInfluencer.Random();
+		TextureRegion[] textureRegions = new TextureRegion[regionNames.length];
+		for (int i = 0; i < regionNames.length; i++) {
+			textureRegions[i] = textureAtlas.findRegion(regionNames[i]);
+		}
+		influencer.clear();
+		influencer.add(textureRegions);
+		influencer.setAtlasName(atlasName);
+		controller.replaceInfluencer(RegionInfluencer.class, influencer);
+		controller.init();
+	}
+
+	public void replaceRegionInfluencerWithAnimated(String controllerName, String... regionNames) {
+		ParticleController controller = effect.findController(controllerName);
+		RegionInfluencer.Animated influencer = new RegionInfluencer.Animated();
+		TextureRegion[] textureRegions = new TextureRegion[regionNames.length];
+		for (int i = 0; i < regionNames.length; i++) {
+			textureRegions[i] = textureAtlas.findRegion(regionNames[i]);
+		}
+		influencer.clear();
+		influencer.add(textureRegions);
+		influencer.setAtlasName(atlasName);
+		controller.replaceInfluencer(RegionInfluencer.class, influencer);
+		controller.init();
 	}
 
 	/**
-	 * Recreates all RegionInfluencers in every ParticleController and sets it to first region of current altas. Use when the atlas
+	 * Recreates all RegionInfluencers in every ParticleController and sets it to first region of current atlas. Use when the atlas
 	 * is replaced completely.
 	 */
 	private void forceUpdateAtlasRegions() {
+		if (effect == null) return;
 		for (ParticleController controller : effect.getControllers()) {
 			if (controller.renderer instanceof ModelInstanceRenderer) continue;
 			if (controller.renderer instanceof ParticleControllerControllerRenderer) continue; // TODO more specific case
-			controller.removeInfluencer(RegionInfluencer.class);
-			RegionInfluencer regionInfluencer = new RegionInfluencer.Single(new TextureRegion(textureAtlas.getRegions().first()));
-			regionInfluencer.setAtlasName(atlasName);
-			controller.influencers.add(regionInfluencer);
-			controller.init();
+
+			String[] regionNames = new String[textureAtlas.getRegions().size];
+			for (int i = 0; i < textureAtlas.getRegions().size; i++) {
+				regionNames[i] = textureAtlas.getRegions().get(i).name;
+			}
+			RegionInfluencer oldInfluencer = controller.findInfluencer(RegionInfluencer.class);
+			if (oldInfluencer instanceof RegionInfluencer.Single) {
+				replaceRegionInfluencerWithSingle(controller.name, regionNames[0]);
+			}
+			else if (oldInfluencer instanceof RegionInfluencer.Random) {
+				replaceRegionInfluencerWithRandom(controller.name, regionNames);
+			}
+			else {
+				replaceRegionInfluencerWithAnimated(controller.name, regionNames);
+			}
 		}
 	}
 

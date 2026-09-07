@@ -1,0 +1,9 @@
+burst_test_particles.png
+size:128,64
+repeat:none
+circle
+bounds:36,2,32,32
+spark
+bounds:2,2,32,32
+star
+bounds:70,2,32,32

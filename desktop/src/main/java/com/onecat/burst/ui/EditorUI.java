@@ -1,5 +1,6 @@
 package com.onecat.burst.ui;
 
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g3d.particles.ParticleController;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -71,10 +72,29 @@ public class EditorUI implements Disposable {
 
 	public void updateControllers(Array<ParticleController> controllers) {
 		projectPanel.updateControllers(controllers);
+		if (controllerPanel != null) {
+			boolean editedControllerRemained = false;
+			for (ParticleController controller : controllers) {
+				if (controller.name.equals(controllerPanel.controllerName)) {
+					editedControllerRemained = true;
+					break;
+				}
+			}
+			if (!editedControllerRemained) {
+				controllerPanel.remove();
+				controllerPanel = null;
+			}
+		}
 	}
 
 	public void setAtlasPreviewImage(TextureRegion region) {
 		projectPanel.setAtlasPreviewImage(region);
+	}
+
+	public void updateAtlas(String name, TextureAtlas atlas) {
+		if (controllerPanel != null) {
+			controllerPanel.updateAtlas(name, atlas);
+		}
 	}
 
 	public void setEditedController(ParticleController controller) {

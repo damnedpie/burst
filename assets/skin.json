@@ -175,6 +175,19 @@ ImageButtonStyle: {
 		parent: default
 		checked: button_checked_green
 	}
+	fold: {
+		parent: default
+		imageUp: tree_plus
+		imageChecked: tree_minus
+	}
+	left: {
+		parent: default
+		imageUp: left
+	}
+	right: {
+		parent: default
+		imageUp: right
+	}
 }
 ImageTextButtonStyle: {
 	default: {

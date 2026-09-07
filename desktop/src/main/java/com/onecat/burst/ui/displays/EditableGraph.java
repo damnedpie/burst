@@ -124,7 +124,6 @@ public class EditableGraph extends Widget {
 		points.add(new GraphPoint(timeline, scaling));
 		sortPoints();
 		syncPoints();
-		// TODO update emitter Value
 	}
 
 	private void sortPoints() {
@@ -193,6 +192,8 @@ public class EditableGraph extends Widget {
 					for (int i = points.size - 1; i > 0; i--) {
 						if (points.get(i).containsPosition(x, y)) {
 							points.removeIndex(i);
+							sortPoints();
+							syncPoints();
 							break;
 						}
 					}
