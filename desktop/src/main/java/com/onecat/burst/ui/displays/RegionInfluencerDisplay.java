@@ -37,6 +37,7 @@ public class RegionInfluencerDisplay extends ControllerComponentDisplay {
 		this.influencer = influencer;
 		this.controller = controller;
 		this.particleManager = Main.getParticleManager();
+		checkIfUnfoldedBefore();
 	}
 
 	public void refreshAtlas() {
@@ -151,8 +152,9 @@ public class RegionInfluencerDisplay extends ControllerComponentDisplay {
 		switch (type) {
 			case SINGLE -> {
 				Table singleTable = new Table();
+				singleTable.setBackground(getSkin().getDrawable("button_flat_default_disabled"));
 				singleTable.defaults().growX().uniformX().minHeight(26f).space(4f);
-				Label label = new Label("Region", getSkin().get("small", Label.LabelStyle.class));
+				Label label = new Label("Region", getSkin());
 				singleTable.add(label);
 				SelectBox<String> atlasRegionList = new SelectBox<>(getSkin());
 				atlasRegionList.setItems(regionNames);
@@ -172,6 +174,7 @@ public class RegionInfluencerDisplay extends ControllerComponentDisplay {
 				pickRegionsLabel.setAlignment(Align.center);
 				addContent(pickRegionsLabel);
 				Table regionsTable = new Table();
+				regionsTable.setBackground(getSkin().getDrawable("button_flat_default_disabled"));
 				ButtonGroup<CheckBox> checkBoxButtonGroup = new ButtonGroup<>();
 				checkBoxButtonGroup.setMinCheckCount(1);
 				checkBoxButtonGroup.setMaxCheckCount(-1);
@@ -229,6 +232,7 @@ public class RegionInfluencerDisplay extends ControllerComponentDisplay {
 			}
 			case ANIMATED -> {
 				Table hintsTable = new Table();
+				hintsTable.setBackground(getSkin().getDrawable("button_flat_default_disabled"));
 				hintsTable.defaults().growX().uniformX();
 				Label hintAtlasLabel = new Label("Atlas regions", getSkin().get("default", Label.LabelStyle.class));
 				hintAtlasLabel.setAlignment(Align.center);

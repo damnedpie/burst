@@ -13,6 +13,7 @@ public class Settings {
 	public static final Setting<Boolean> SET_PRETTY_PRINT_ENABLED = new Setting<>("pretty_print_enabled", true);
 	public static final Setting<String> SET_OUTPUT_MODE = new Setting<>("output_mode", "minimal");
 	public static final Setting<String> SET_BG_COLOR = new Setting<>("bg_color", "38384C");
+	public static final Setting<Float> SET_UI_OPACITY = new Setting<>("ui_opacity", 0.7f);
 
 	private static Preferences getPrefs() {
 		if (preferences == null)

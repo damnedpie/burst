@@ -13,6 +13,7 @@ public class RegularEmitterDisplay extends ControllerComponentDisplay {
 	public RegularEmitterDisplay(RegularEmitter emitter, Skin skin) {
 		super("Regular Emitter", skin);
 		this.emitter = emitter;
+		checkIfUnfoldedBefore();
 	}
 
 	@Override
@@ -28,11 +29,56 @@ public class RegularEmitterDisplay extends ControllerComponentDisplay {
 		});
 		addContent(continuousCheckbox);
 		addContent(new DisplayComponent.CountComponent(emitter, getSkin()));
-		addContent(new DisplayComponent.RangedNumericComponent("Delay", emitter.delayValue, getSkin()));
-		addContent(new DisplayComponent.RangedNumericComponent("Duration", emitter.durationValue, getSkin()));
-		addContent(new DisplayComponent.ScaledNumericComponent("Emission", emitter.emissionValue, getSkin()));
-		addContent(new DisplayComponent.ScaledNumericComponent("Life", emitter.lifeValue, getSkin()));
-		addContent(new DisplayComponent.ScaledNumericComponent("Life Offset", emitter.lifeOffsetValue, getSkin()));
+		addContent(
+				new DisplayComponent.RangedNumericComponent(
+						"Delay",
+						emitter.delayValue,
+						getSkin(),
+						true,
+						true,
+						true
+				)
+		);
+		addContent(
+				new DisplayComponent.RangedNumericComponent(
+						"Duration",
+						emitter.durationValue,
+						getSkin(),
+						true,
+						true,
+						true
+				)
+		);
+		addContent(
+				new DisplayComponent.ScaledNumericComponent(
+						"Emission",
+						emitter.emissionValue,
+						getSkin(),
+						true,
+						true,
+						true
+				)
+		);
+		addContent(
+				new DisplayComponent.ScaledNumericComponent(
+						"Life",
+						emitter.lifeValue,
+						getSkin(),
+						true,
+						true,
+						true
+				)
+		);
+		addContent(
+				new DisplayComponent.ScaledNumericComponent(
+						"Life Offset",
+						emitter.lifeOffsetValue,
+						getSkin(),
+						true,
+						true,
+						true
+				)
+		);
 	}
 
 }

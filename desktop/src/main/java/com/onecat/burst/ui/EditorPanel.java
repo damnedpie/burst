@@ -27,6 +27,7 @@ public class EditorPanel extends Table {
 		void onDeltaMultiplierChanged(float value);
 		void onBackgroundColorPicked(String hex);
 		void onBackgroundColorUpdated(String hex);
+		void onUiOpacityChanged(float value);
 		void onGridToggled(boolean enabled);
 		void onGizmoToggled(boolean enabled);
 		void onPrettyPrintToggled(boolean enabled);
@@ -104,6 +105,20 @@ public class EditorPanel extends Table {
 			}
 		});
 		subTable.add(bgColorButton).fillY();
+		subTable.row();
+
+		Label uiOpacityLabel = new Label("UI opacity", skin);
+		subTable.add(uiOpacityLabel);
+		Slider uiOpacitySlider = new Slider(0.25f, 1.0f, 0.01f, false, skin);
+		uiOpacitySlider.setValue(Settings.getFloat(Settings.SET_UI_OPACITY));
+		uiOpacitySlider.addListener(new ChangeListener() {
+
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				for (EventListener listener : getEventListeners()) listener.onUiOpacityChanged(uiOpacitySlider.getValue());
+			}
+		});
+		subTable.add(uiOpacitySlider);
 		subTable.row();
 
 		CheckBox gridCheckbox = new CheckBox("Grid", skin);

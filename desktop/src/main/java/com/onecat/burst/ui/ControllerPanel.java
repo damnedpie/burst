@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g3d.particles.ParticleController;
 import com.badlogic.gdx.graphics.g3d.particles.emitters.RegularEmitter;
 import com.badlogic.gdx.graphics.g3d.particles.influencers.RegionInfluencer;
+import com.badlogic.gdx.graphics.g3d.particles.influencers.SpawnInfluencer;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.utils.Align;
@@ -60,9 +61,10 @@ public class ControllerPanel extends Table {
 			}
 		});
 		add(scroll).grow();
-
 		addDisplay(new RegularEmitterDisplay((RegularEmitter) controller.emitter, getSkin())).row();
-		addDisplay(new RegionInfluencerDisplay(controller, controller.findInfluencer(RegionInfluencer.class), getSkin()));
+		addDisplay(new RegionInfluencerDisplay(controller, controller.findInfluencer(RegionInfluencer.class), getSkin())).row();
+		addDisplay(new SpawnInfluencerDisplay(controller.findInfluencer(SpawnInfluencer.class), getSkin()));
+		// TODO remove this later
 		/* Billboard Controller and PointSprite Controller have following Influencers
 		 * Regular Emitter (always)
 		 * Region Influencer (always)
@@ -131,6 +133,9 @@ public class ControllerPanel extends Table {
 
 	public void setOpacity(float opacity) {
 		this.opacity = opacity;
+		for (ControllerComponentDisplay display : displays) {
+			display.setOpacity(opacity);
+		}
 	}
 
 	private Cell<ControllerComponentDisplay> addDisplay(ControllerComponentDisplay display) {

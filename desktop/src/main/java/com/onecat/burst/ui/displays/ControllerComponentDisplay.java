@@ -1,16 +1,19 @@
 package com.onecat.burst.ui.displays;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
+import com.onecat.burst.Main;
 
 public abstract class ControllerComponentDisplay extends Table {
 
 	private Table contentTable;
-	private final String name;
+	protected final String name;
 	protected ImageButton foldButton;
+	private float opacity;
 
 	public ControllerComponentDisplay(String name, Skin skin) {
 		super(skin);
@@ -18,6 +21,10 @@ public abstract class ControllerComponentDisplay extends Table {
 		setBackground(skin.getDrawable("panel_thin_default"));
 		defaults().growX().space(8f);
 		createHeader();
+	}
+
+	public void setOpacity(float opacity) {
+		this.opacity = opacity;
 	}
 
 	private void createHeader() {
@@ -31,9 +38,11 @@ public abstract class ControllerComponentDisplay extends Table {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				if (foldButton.isChecked()) {
+					Main.markAsUnfolded(name);
 					onUnfolded();
 				}
 				else {
+					Main.markAsFolded(name);
 					onFolded();
 				}
 			}
@@ -48,16 +57,25 @@ public abstract class ControllerComponentDisplay extends Table {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				if (!foldButton.isChecked()) {
+					Main.markAsUnfolded(name);
 					onUnfolded();
 					foldButton.setChecked(true);
 				}
 				else {
+					Main.markAsFolded(name);
 					onFolded();
 				}
 			}
 		});
 		headerTable.add(header).grow();
 		add(headerTable);
+	}
+
+	protected void checkIfUnfoldedBefore() {
+		if (Main.getUnfolded().contains(name)) {
+			onUnfolded();
+			foldButton.setChecked(true);
+		}
 	}
 
 	protected void addContent(Actor actor) {
@@ -77,5 +95,10 @@ public abstract class ControllerComponentDisplay extends Table {
 	}
 
 	abstract void onUnfolded();
+
+	@Override
+	protected void drawBackground(Batch batch, float parentAlpha, float x, float y) {
+		super.drawBackground(batch, opacity, x, y);
+	}
 
 }

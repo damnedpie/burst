@@ -21,6 +21,8 @@ import net.mgsx.gltf.loaders.glb.GLBLoader;
 import net.mgsx.gltf.scene3d.scene.SceneManager;
 import net.mgsx.gltf.scene3d.utils.MaterialConverter;
 import org.lwjgl.util.nfd.NativeFileDialog;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main implements ApplicationListener {
 
@@ -36,6 +38,8 @@ public class Main implements ApplicationListener {
 	private WorldGrid grid;
 	private WorldGizmo gizmo;
 	private ParticleManager particleManager;
+
+	private final HashSet<String> unfoldedInfluencers = new HashSet<>();
 
 	@Override
 	public void create() {
@@ -137,6 +141,18 @@ public class Main implements ApplicationListener {
 
 	public static ParticleManager getParticleManager() {
 		return ((Main) Gdx.app.getApplicationListener()).particleManager;
+	}
+
+	public static void markAsUnfolded(String componentName) {
+		((Main) Gdx.app.getApplicationListener()).unfoldedInfluencers.add(componentName);
+	}
+
+	public static void markAsFolded(String componentName) {
+		((Main) Gdx.app.getApplicationListener()).unfoldedInfluencers.remove(componentName);
+	}
+
+	public static Set<String> getUnfolded() {
+		return ((Main) Gdx.app.getApplicationListener()).unfoldedInfluencers;
 	}
 
 	private void onTextureChanged(String name, TextureRegion region) {
@@ -251,6 +267,11 @@ public class Main implements ApplicationListener {
 		bgColor.set(Color.valueOf(hex));
 	}
 
+	private void onUiOpacityChanged(float value) {
+		Settings.putFloat(Settings.SET_UI_OPACITY, value);
+		editorUI.setUiOpacity(value);
+	}
+
 	private EditorUI.EventListener createUICallbacks() {
 		return new EditorUI.EventListener() {
 
@@ -342,6 +363,11 @@ public class Main implements ApplicationListener {
 			@Override
 			public void onBackgroundColorUpdated(String hex) {
 				Main.this.onBackgroundColorUpdated(hex);
+			}
+
+			@Override
+			public void onUiOpacityChanged(float value) {
+				Main.this.onUiOpacityChanged(value);
 			}
 		};
 	}

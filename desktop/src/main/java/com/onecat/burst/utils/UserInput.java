@@ -11,7 +11,7 @@ public class UserInput {
 	}
 
 	public static TextField.TextFieldFilter floatFilter() {
-		return (textField, c) -> Character.isDigit(c) || c == '.';
+		return (textField, c) -> Character.isDigit(c) || c == '.' || c == '-';
 	}
 
 	public static TextField.TextFieldFilter integerFilter() {

@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
+import com.onecat.burst.utils.Settings;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +17,6 @@ public class EditorUI implements Disposable {
 	private final EditorPanel editorPanel;
 	private final ProjectPanel projectPanel;
 	private ControllerPanel controllerPanel;
-
-	private float uiOpacity = 0.7f;
 
 	public interface EventListener {
 
@@ -29,6 +28,7 @@ public class EditorUI implements Disposable {
 		void onDeltaMultiplierChanged(float value);
 		void onBackgroundColorPicked(String hex);
 		void onBackgroundColorUpdated(String hex);
+		void onUiOpacityChanged(float value);
 		void onGridToggled(boolean enabled);
 		void onGizmoToggled(boolean enabled);
 		void onPrettyPrintToggled(boolean enabled);
@@ -51,15 +51,14 @@ public class EditorUI implements Disposable {
 		stage.addActor(editorPanel = new EditorPanel(skin));
 		stage.addActor(projectPanel = new ProjectPanel(skin));
 		createUICallbacks();
-		setUiOpacity(uiOpacity);
+		setUiOpacity(Settings.getFloat(Settings.SET_UI_OPACITY));
 	}
 
 	public void setUiOpacity(float opacity) {
-		uiOpacity = opacity;
-		topBar.setOpacity(uiOpacity);
-		editorPanel.setOpacity(uiOpacity);
-		projectPanel.setOpacity(uiOpacity);
-		if (controllerPanel != null) controllerPanel.setOpacity(uiOpacity);
+		topBar.setOpacity(opacity);
+		editorPanel.setOpacity(opacity);
+		projectPanel.setOpacity(opacity);
+		if (controllerPanel != null) controllerPanel.setOpacity(opacity);
 	}
 
 	public void addListener(EventListener listener) {
@@ -103,7 +102,7 @@ public class EditorUI implements Disposable {
 		}
 		if (controller != null) {
 			topBar.getStage().addActor(controllerPanel = new ControllerPanel(controller, topBar.getSkin()));
-			controllerPanel.setOpacity(uiOpacity);
+			controllerPanel.setOpacity(Settings.getFloat(Settings.SET_UI_OPACITY));
 		}
 	}
 
@@ -145,6 +144,11 @@ public class EditorUI implements Disposable {
 			@Override
 			public void onBackgroundColorUpdated(String hex) {
 				for (EventListener listener : getListeners()) listener.onBackgroundColorUpdated(hex);
+			}
+
+			@Override
+			public void onUiOpacityChanged(float value) {
+				for (EventListener listener : getListeners()) listener.onUiOpacityChanged(value);
 			}
 
 			@Override

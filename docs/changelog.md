@@ -1,5 +1,14 @@
 # Changelog
 
+## Spawn Influencer done
+**Sep 14, 2026**
+- Controller components now auto-unfold if they were previously unfolded by the user (so switching between controllers doesn't make the user unfold them again)
+- Added editor UI opacity slider
+- Implemented SpawnInfluencerDisplay (3D mesh shapes are still WIP)
+- ControllerComponentDisplays now also draw background with editor opacity
+- Changed layout rules for DisplayComponents
+- DisplayComponents now can force positive values, force integer values and be automatically applied (currently used by spawn shape offsets)
+
 ## Region Influencer done
 **Sep 7, 2026**
 - Now Burst uses an atlas for empty projects by default
@@ -34,7 +43,7 @@
 - Fixed the issue Flame had about losing information on .atlas file used in the particle system upon loading and saving it
 - Atlas files can now be loaded and used by effects
 - A default particle effect is now created upon session start or creating a new file
-  -Made Settings entries and defaults statically typed and centralized in Settings class
+- Made Settings entries and defaults statically typed and centralized in Settings class
 - Updated README with miserable explanation why even bother use Burst instead of Flame
 
 ## Camera, PFX loading, Settings
