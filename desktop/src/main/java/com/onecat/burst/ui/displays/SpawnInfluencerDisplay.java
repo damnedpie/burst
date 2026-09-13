@@ -1,5 +1,6 @@
 package com.onecat.burst.ui.displays;
 
+import com.badlogic.gdx.graphics.g3d.particles.ParticleController;
 import com.badlogic.gdx.graphics.g3d.particles.influencers.SpawnInfluencer;
 import com.badlogic.gdx.graphics.g3d.particles.values.*;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -28,10 +29,13 @@ public class SpawnInfluencerDisplay extends ControllerComponentDisplay {
 	private UnweightedMeshSpawnShapeValue unweightedMeshSpawnShapeValue;
 	private WeightMeshSpawnShapeValue weightMeshSpawnShapeValue;
 
-	public SpawnInfluencerDisplay(SpawnInfluencer influencer, Skin skin) {
-		super("Spawn Influencer", skin);
-		this.influencer = influencer;
-		checkIfUnfoldedBefore();
+	public SpawnInfluencerDisplay(ParticleController controller, Skin skin) {
+		super(controller, "Spawn Influencer", skin);
+	}
+
+	@Override
+	protected void initialize() {
+		influencer = controller.findInfluencer(SpawnInfluencer.class);
 	}
 
 	private void createXYZRangedComponents(SpawnShapeValue value) {
@@ -195,7 +199,7 @@ public class SpawnInfluencerDisplay extends ControllerComponentDisplay {
 	}
 
 	@Override
-	void onUnfolded() {
+	protected void onUnfolded() {
 		Table typeTable = new Table();
 		typeTable.setBackground(getSkin().getDrawable("button_flat_default_disabled"));
 		Label typeLabel = new Label("Shape", getSkin());

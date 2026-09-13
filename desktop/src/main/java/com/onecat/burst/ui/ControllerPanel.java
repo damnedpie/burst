@@ -3,9 +3,8 @@ package com.onecat.burst.ui;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g3d.particles.ParticleController;
-import com.badlogic.gdx.graphics.g3d.particles.emitters.RegularEmitter;
-import com.badlogic.gdx.graphics.g3d.particles.influencers.RegionInfluencer;
-import com.badlogic.gdx.graphics.g3d.particles.influencers.SpawnInfluencer;
+import com.badlogic.gdx.graphics.g3d.particles.influencers.ColorInfluencer;
+import com.badlogic.gdx.graphics.g3d.particles.influencers.ScaleInfluencer;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.utils.Align;
@@ -61,9 +60,11 @@ public class ControllerPanel extends Table {
 			}
 		});
 		add(scroll).grow();
-		addDisplay(new RegularEmitterDisplay((RegularEmitter) controller.emitter, getSkin())).row();
-		addDisplay(new RegionInfluencerDisplay(controller, controller.findInfluencer(RegionInfluencer.class), getSkin())).row();
-		addDisplay(new SpawnInfluencerDisplay(controller.findInfluencer(SpawnInfluencer.class), getSkin()));
+		addDisplay(new RegularEmitterDisplay(controller, getSkin())).row();
+		addDisplay(new RegionInfluencerDisplay(controller, getSkin())).row();
+		addDisplay(new SpawnInfluencerDisplay(controller, getSkin())).row();
+		addDisplay(new ScaleInfluencerDisplay(controller, getSkin(), controller.findInfluencer(ScaleInfluencer.class) != null)).row();
+		addDisplay(new ColorInfluencerDisplay(controller, getSkin(), controller.findInfluencer(ColorInfluencer.class) != null)).row();
 		// TODO remove this later
 		/* Billboard Controller and PointSprite Controller have following Influencers
 		 * Regular Emitter (always)

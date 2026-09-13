@@ -15,8 +15,7 @@ import java.util.Objects;
 
 public class RegionInfluencerDisplay extends ControllerComponentDisplay {
 
-	private final ParticleManager particleManager;
-	private final ParticleController controller;
+	private ParticleManager particleManager;
 	private RegionInfluencer influencer;
 
 	private enum Type {
@@ -32,12 +31,14 @@ public class RegionInfluencerDisplay extends ControllerComponentDisplay {
 
 	private final Array<CheckBox> randomRegionCheckboxes = new Array<>();
 
-	public RegionInfluencerDisplay(ParticleController controller, RegionInfluencer influencer, Skin skin) {
-		super("Region Influencer", skin);
-		this.influencer = influencer;
-		this.controller = controller;
+	public RegionInfluencerDisplay(ParticleController controller, Skin skin) {
+		super(controller, "Region Influencer", skin);
+	}
+
+	@Override
+	protected void initialize() {
+		influencer = controller.findInfluencer(RegionInfluencer.class);
 		this.particleManager = Main.getParticleManager();
-		checkIfUnfoldedBefore();
 	}
 
 	public void refreshAtlas() {
@@ -101,7 +102,7 @@ public class RegionInfluencerDisplay extends ControllerComponentDisplay {
 	}
 
 	@Override
-	void onUnfolded() {
+	protected void onUnfolded() {
 		fetchAtlasData();
 		Table typeTable = new Table();
 		typeTable.defaults().growX().uniformX().minHeight(26f).space(4f);

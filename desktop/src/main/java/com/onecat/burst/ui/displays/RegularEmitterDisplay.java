@@ -1,5 +1,6 @@
 package com.onecat.burst.ui.displays;
 
+import com.badlogic.gdx.graphics.g3d.particles.ParticleController;
 import com.badlogic.gdx.graphics.g3d.particles.emitters.RegularEmitter;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
@@ -8,16 +9,19 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
 public class RegularEmitterDisplay extends ControllerComponentDisplay {
 
-	private final RegularEmitter emitter;
+	private RegularEmitter emitter;
 
-	public RegularEmitterDisplay(RegularEmitter emitter, Skin skin) {
-		super("Regular Emitter", skin);
-		this.emitter = emitter;
-		checkIfUnfoldedBefore();
+	public RegularEmitterDisplay(ParticleController controller, Skin skin) {
+		super(controller, "Regular Emitter", skin);
 	}
 
 	@Override
-	void onUnfolded() {
+	protected void initialize() {
+		this.emitter = (RegularEmitter) controller.emitter;
+	}
+
+	@Override
+	protected void onUnfolded() {
 		CheckBox continuousCheckbox = new CheckBox("Continuous", getSkin());
 		continuousCheckbox.setChecked(emitter.isContinuous());
 		continuousCheckbox.addListener(new ChangeListener() {

@@ -1,5 +1,11 @@
 # Changelog
 
+## Scale Influencer done
+**Sep 14, 2026**
+- Refactored ControllerComponentDisplay and inheriting classes to streamline the way they get instantiated and initialized
+- ControllerComponentDisplay can now be optional for Influencers that are not mandatory to an effect meaning they can be added or removed
+- Implemented ScaleInfluencerDisplay
+
 ## Spawn Influencer done
 **Sep 14, 2026**
 - Controller components now auto-unfold if they were previously unfolded by the user (so switching between controllers doesn't make the user unfold them again)
