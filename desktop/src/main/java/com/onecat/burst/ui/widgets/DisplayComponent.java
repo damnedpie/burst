@@ -1,4 +1,4 @@
-package com.onecat.burst.ui.displays;
+package com.onecat.burst.ui.widgets;
 
 import com.badlogic.gdx.graphics.g3d.particles.emitters.RegularEmitter;
 import com.badlogic.gdx.graphics.g3d.particles.values.RangedNumericValue;

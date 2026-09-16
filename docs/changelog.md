@@ -1,5 +1,12 @@
 # Changelog
 
+## Color Influencer done
+**Sep 16, 2026**
+- UI atoms (widgets) moved to their own package
+- Implemented ColorInfluencerDisplay
+- Implemented EditableGradient widget (I don't think its gonna be used anywhere else but ColorInfluencerDisplay)
+- Made PopColorPicker windows draggable + appearing in the left part of the screen
+
 ## Scale Influencer done
 **Sep 14, 2026**
 - Refactored ControllerComponentDisplay and inheriting classes to streamline the way they get instantiated and initialized

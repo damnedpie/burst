@@ -118,6 +118,10 @@ TintedDrawable: {
 		name: white-pixel
 		color: empty
 	}
+	white_pixel: {
+		name: white-pixel
+		color: white
+	}
 }
 TiledDrawable: {
 	checker_bg_tiled: {

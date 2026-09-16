@@ -3,6 +3,7 @@ package com.onecat.burst.ui.displays;
 import com.badlogic.gdx.graphics.g3d.particles.ParticleController;
 import com.badlogic.gdx.graphics.g3d.particles.influencers.ScaleInfluencer;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.onecat.burst.ui.widgets.DisplayComponent;
 
 public class ScaleInfluencerDisplay extends ControllerComponentDisplay {
 

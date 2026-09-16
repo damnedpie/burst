@@ -1,4 +1,4 @@
-package com.onecat.burst.ui.displays;
+package com.onecat.burst.ui.widgets;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;

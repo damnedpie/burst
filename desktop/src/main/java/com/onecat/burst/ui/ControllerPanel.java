@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 import com.onecat.burst.ui.displays.*;
+import com.onecat.burst.ui.widgets.EditableGraph;
 import java.util.Locale;
 
 public class ControllerPanel extends Table {

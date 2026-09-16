@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.onecat.burst.ui.EditorUI;
-import com.onecat.burst.ui.displays.EditableGraph;
+import com.onecat.burst.ui.widgets.EditableGraph;
 import com.onecat.burst.utils.*;
 import com.onecat.burst.world.*;
 import net.mgsx.gltf.loaders.glb.GLBLoader;

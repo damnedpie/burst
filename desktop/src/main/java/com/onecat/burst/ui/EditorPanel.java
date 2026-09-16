@@ -210,6 +210,8 @@ public class EditorPanel extends Table {
 	private void onBackgroundColorPressed() {
 		if (colorPicker != null && !colorPicker.isHidden()) return;
 		colorPicker = new PopColorPicker(Color.valueOf(Settings.getString(Settings.SET_BG_COLOR)), getSkin());
+		colorPicker.setDraggable(true);
+		colorPicker.setKeepCenteredInWindow(false);
 		colorPicker.setBackground(getSkin().getDrawable("panel_default_default"));
 		colorPicker.addListener(new PopColorPicker.PopColorPickerListener() {
 
@@ -232,6 +234,7 @@ public class EditorPanel extends Table {
 			}
 		});
 		colorPicker.show(getStage());
+		colorPicker.setPosition(8f, colorPicker.getY());
 	}
 
 	private void onFovEdited(TextField input) {
