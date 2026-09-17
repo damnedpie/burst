@@ -361,11 +361,11 @@ public class ParticleManager implements Disposable {
 	}
 
 	private void addDefaultModelInstanceController() {
-		// TODO
+		// TODO implement
 	}
 
 	private void addDefaultParticleControllerController() {
-		// TODO
+		// TODO implement
 	}
 
 	private RegularEmitter createDefaultRegularEmitter() {

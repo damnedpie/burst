@@ -1,5 +1,9 @@
 # Changelog
 
+## Dynamics Influencer done
+**Sep 17, 2026**
+- Implemented DynamicsInfluencerDisplay
+
 ## Color Influencer done
 **Sep 16, 2026**
 - UI atoms (widgets) moved to their own package

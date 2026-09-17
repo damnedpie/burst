@@ -3,8 +3,7 @@ package com.onecat.burst.ui;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g3d.particles.ParticleController;
-import com.badlogic.gdx.graphics.g3d.particles.influencers.ColorInfluencer;
-import com.badlogic.gdx.graphics.g3d.particles.influencers.ScaleInfluencer;
+import com.badlogic.gdx.graphics.g3d.particles.influencers.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.utils.Align;
@@ -66,63 +65,29 @@ public class ControllerPanel extends Table {
 		addDisplay(new SpawnInfluencerDisplay(controller, getSkin())).row();
 		addDisplay(new ScaleInfluencerDisplay(controller, getSkin(), controller.findInfluencer(ScaleInfluencer.class) != null)).row();
 		addDisplay(new ColorInfluencerDisplay(controller, getSkin(), controller.findInfluencer(ColorInfluencer.class) != null)).row();
-		// TODO remove this later
-		/* Billboard Controller and PointSprite Controller have following Influencers
-		 * Regular Emitter (always)
-		 * Region Influencer (always)
-		 * 	- Single
-		 * 	- Animated
-		 *  - Random
-		 * Spawn Influencer (always)
-		 * 	- Point
-		 * 	- Line
-		 * 	- Rectangle
-		 * 	- Ellipse
-		 * 	- Cylinder
-		 * 	- Unweighted Mesh
-		 * 	- Weighted Mesh
-		 * Scale Influencer (optional)
-		 * Color (optional)
-		 * 	- Single Color Influencer
-		 * 	- Random Color Influencer
-		 * Dynamics (optional) (this is tricky because it contains sub-influencers of any kind and number)
-		 * 	- Angular Velocity 3D
-		 * 	- Centripetal
-		 * 	- Tangential
-		 * 	- Polar
-		 * 	- Brownian
-		 * 	- Face
-		 *
-		 * ModelInstance Controller has following Influencers
-		 * RegularEmitter (always)
-		 * Model Influencer
-		 * 	- Single
-		 * 	- Random
-		 * Spawn Influencer (always)
-		 * 	- Point
-		 * 	- Line
-		 * 	- Rectangle
-		 * 	- Ellipse
-		 * 	- Cylinder
-		 * 	- Unweighted Mesh
-		 * 	- Weighted Mesh
-		 * Scale Influencer (optional)
-		 * Color (optional)
-		 * 	- Single Color Influencer
-		 * 	- Random Color Influencer
-		 * Dynamics (optional)
-		 *
-		 *
-		 * Which leaves us with a list of influencers:
-		 * 	Regular Emitter
-		 * 	Region Influencer (Single, Random, Animated)
-		 * 	Model Influencer (Single, Random)
-		 * 	Spawn Influencer (Point, Line, Rectangle, Ellipse, Cylinder, Unweighted Mesh, Weighted Mesh)
-		 * 	Scale Influencer
-		 * 	Color Influencer (Single, Random)
-		 * 	Dynamics (mix of all kinds)
+		addDisplay(new DynamicsInfluencerDisplay(controller, getSkin(), controller.findInfluencer(DynamicsInfluencer.class) != null)).row();
+		/* TODO remove this later
+		 * 	ModelInstance Controller has following Influencers
+		 * 	RegularEmitter (always)
+		 * 	Model Influencer
+		 * 		- Single
+		 * 		- Random
+		 * 	Spawn Influencer (always)
+		 * 		- Point
+		 * 		- Line
+		 * 		- Rectangle
+		 * 		- Ellipse
+		 * 		- Cylinder
+		 * 		- Unweighted Mesh
+		 * 		- Weighted Mesh
+		 * 	Scale Influencer (optional)
+		 * 	Color (optional)
+		 * 		- Single Color Influencer
+		 * 		- Random Color Influencer
+		 * 	Dynamics (optional)
+		 * 	Left to do:
+		 * 		Model Influencer (Single, Random)
 		 */
-
 	}
 
 	public void updateAtlas(String name, TextureAtlas atlas) {

@@ -176,20 +176,22 @@ public class SpawnInfluencerDisplay extends ControllerComponentDisplay {
 					influencer.spawnShapeValue = spawnShapeValue;
 				}
 			}
+			// TODO implement
 			case UNWEIGHTED_MESH -> {
 				if (unweightedMeshSpawnShapeValue != null) {
 					influencer.spawnShapeValue = unweightedMeshSpawnShapeValue;
 				}
 				else {
-					// TODO
+
 				}
 			}
+			// TODO implement
 			case WEIGHTED_MESH -> {
 				if (weightMeshSpawnShapeValue != null) {
 					influencer.spawnShapeValue = weightMeshSpawnShapeValue;
 				}
 				else {
-					// TODO
+
 				}
 			}
 		}
