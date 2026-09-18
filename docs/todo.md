@@ -1,9 +1,9 @@
 # TODO
 
-- 3D stuff (model instance controller, model influencer display)
+- 3D stuff (model instance controller, model influencer display, GLTF support)
 - ParticleControllers (lord save us)
 - Graph step setting
 - Tooltips
 - Explainer text in DynamicsModifier displays
 - Controller panel gets closed on renaming, kinda sucks
-- ScaledNumericComponent in ColorInfluencer could just be a graph
+- ScaledNumericComponent in ColorInfluencer could just be a graph without numerical parameters

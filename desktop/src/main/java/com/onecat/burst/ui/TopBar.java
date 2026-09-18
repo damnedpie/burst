@@ -53,7 +53,7 @@ public class TopBar extends Table implements Disposable {
 		});
 		newButton.setStyle(skin.get("default_flat", TextButton.TextButtonStyle.class));
 		add(newButton);
-		TextButton openButton = new TextButton("Open", skin);
+		TextButton openButton = new TextButton("Open...", skin);
 		openButton.addListener(new ChangeListener() {
 
 			@Override
@@ -63,7 +63,7 @@ public class TopBar extends Table implements Disposable {
 		});
 		openButton.setStyle(skin.get("default_flat", TextButton.TextButtonStyle.class));
 		add(openButton);
-		TextButton saveButton = new TextButton("Save", skin);
+		TextButton saveButton = new TextButton("Save as...", skin);
 		saveButton.addListener(new ChangeListener() {
 
 			@Override

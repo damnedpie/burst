@@ -86,6 +86,10 @@ public class EditorUI implements Disposable {
 		}
 	}
 
+	public void updateLoadedModels(Array<String> modelNames) {
+		projectPanel.updateLoadedModels(modelNames);
+	}
+
 	public void setAtlasPreviewImage(TextureRegion region) {
 		projectPanel.setAtlasPreviewImage(region);
 	}

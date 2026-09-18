@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0 - set sail!
+**Sep 18, 2026**
+- Added a default GLB mesh
+- Fixed issues in desktop module build.gradle
+- Added basic hotkeys like Ctrl+S/N/O
+- Did some work on ModelInstance particles but currently paused at making GLB work with particle saving/loading
+- Updated README, added license
+
 ## Dynamics Influencer done
 **Sep 17, 2026**
 - Implemented DynamicsInfluencerDisplay

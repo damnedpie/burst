@@ -21,6 +21,7 @@ public class ProjectPanel extends Table {
 	private final ScrollPane controllersScroll;
 	private final Table controllersTable;
 	private final Image atlasPreviewImage;
+	private final Table loadedModelsTable;
 
 	String renameOldName = "";
 
@@ -54,6 +55,7 @@ public class ProjectPanel extends Table {
 		left();
 		setBackground("panel_default_default");
 		top();
+		// Controllers editing
 		Label header = new Label("Controllers", skin.get("header", Label.LabelStyle.class));
 		header.setAlignment(Align.center);
 		add(header).growX().row();
@@ -73,7 +75,7 @@ public class ProjectPanel extends Table {
 			}
 		});
 		add(controllersScroll).maxHeight(466f).row();
-		controllersTable.defaults().spaceBottom(2f).growX();
+		controllersTable.defaults().spaceBottom(4f).growX();
 
 		Label addNewLabel = new Label("Add new...", skin.get("header", Label.LabelStyle.class));
 		addNewLabel.setAlignment(Align.center);
@@ -135,10 +137,16 @@ public class ProjectPanel extends Table {
 		atlasPreviewImage = new Image();
 		atlasPreviewImage.setScaling(Scaling.fit);
 		textureSectionTable.add(atlasPreviewImage).maxHeight(128f);
-		add(textureSectionTable);
+		add(textureSectionTable).row();
+
+		Label loadedModelsLabel = new Label("Loaded Models", skin.get("header", Label.LabelStyle.class));
+		loadedModelsLabel.setAlignment(Align.center);
+		add(loadedModelsLabel).row();
+		loadedModelsTable = new Table();
+		add(loadedModelsTable);
 	}
 
-	public void addNewContollerRow(String name, String typeName, boolean isVisible) {
+	private void addNewContollerRow(String name, String typeName, boolean isVisible) {
 		Table table = new Table();
 		table.defaults().fillY().uniformY().space(4f).minWidth(56f).growX();
 		TextField nameField = new TextField(name, getSkin());
@@ -222,6 +230,11 @@ public class ProjectPanel extends Table {
 		controllersTable.add(table).row();
 	}
 
+	private void addNewLoadedModelRow(String name) {
+		Label nameLabel = new Label(name, getSkin().get("small", Label.LabelStyle.class));
+		loadedModelsTable.add(nameLabel).row();
+	}
+
 	public void setAtlasPreviewImage(TextureRegion region) {
 		if (region.getTexture() == null) {
 			atlasPreviewImage.setDrawable(null);
@@ -250,6 +263,13 @@ public class ProjectPanel extends Table {
 			if (controller.emitter instanceof RegularEmitter reg)
 				isVisible = reg.getEmissionMode() != RegularEmitter.EmissionMode.Disabled;
 			addNewContollerRow(controller.name, typeName, isVisible);
+		}
+	}
+
+	public void updateLoadedModels(Array<String> modelNames) {
+		loadedModelsTable.clearChildren();
+		for (String modelName : modelNames) {
+			addNewLoadedModelRow(modelName);
 		}
 	}
 

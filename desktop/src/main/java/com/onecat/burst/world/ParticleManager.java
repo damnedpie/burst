@@ -7,6 +7,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.particles.*;
 import com.badlogic.gdx.graphics.g3d.particles.ParticleEffectLoader.ParticleEffectLoadParameter;
@@ -18,6 +19,8 @@ import com.badlogic.gdx.graphics.g3d.particles.values.RectangleSpawnShapeValue;
 import com.badlogic.gdx.utils.*;
 import com.onecat.burst.utils.Log;
 import com.onecat.burst.utils.Settings;
+import net.mgsx.gltf.loaders.glb.GLBAssetLoader;
+import net.mgsx.gltf.scene3d.scene.SceneAsset;
 import java.io.IOException;
 import java.util.*;
 
@@ -49,8 +52,11 @@ public class ParticleManager implements Disposable {
 
 	public ParticleManager(Camera camera) {
 		am = new AssetManager();
+		GLBAssetLoader glbLoader = new GLBAssetLoader();
+		am.setLoader(SceneAsset.class, glbLoader);
 		am.load("burst_test_particles.atlas", TextureAtlas.class);
 		am.load("burst_test_particles.png", Texture.class);
+		am.load("burst_test_mesh.glb", SceneAsset.class);
 		am.finishLoading();
 		ParticleEffectLoader loader = new ParticleEffectLoader(new AbsoluteFileHandleResolver());
 		am.setLoader(ParticleEffect.class, loader);
@@ -282,6 +288,26 @@ public class ParticleManager implements Disposable {
 		controller.init();
 	}
 
+	public Array<String> getLoadedModelPaths() {
+		Array<SceneAsset> allModels = new Array<>();
+		am.getAll(SceneAsset.class, allModels);
+		Array<String> allModelPaths = new Array<>();
+		for (SceneAsset asset : allModels) {
+			allModelPaths.add(am.getAssetFileName(asset));
+		}
+		return allModelPaths;
+	}
+
+	public Array<Model> getLoadedModels() {
+		Array<Model> models = new Array<>();
+		Array<SceneAsset> allModels = new Array<>();
+		am.getAll(SceneAsset.class, allModels);
+		for (SceneAsset asset : allModels) {
+			models.add(asset.scene.model);
+		}
+		return models;
+	}
+
 	/**
 	 * Recreates all RegionInfluencers in every ParticleController and sets it to first region of current atlas. Use when the atlas
 	 * is replaced completely.
@@ -361,7 +387,27 @@ public class ParticleManager implements Disposable {
 	}
 
 	private void addDefaultModelInstanceController() {
-		// TODO implement
+		/* TODO come back later once decided what to do with non G3DB models
+		 *  The problem here is that libGDX's ParticleSystems require a Model class asset to work with, and saving logic in
+		 *  ModelInfluencer asks the AssetManager about asset filename of the model. With GLTF assets, which are loaded as
+		 *  SceneAssets, this doesn't really work out of the box because we extract a Model from the SceneAsset, so only the
+		 *  SceneAsset reference is held in the AssetManager and querying the Model filepath from AssetManager returns null.
+		 *  Loading logic breaks too, because loader will expect a GLTF file to be loaded as a Model upon parsing the particle
+		 *  effect JSON, and it's not a simple model but a SceneAsset.
+		 */
+		if (true) return;
+		ParticleController newController = new ParticleController(
+				getUnusedName("ModelInstance_1"),
+				createDefaultRegularEmitter(),
+				new ModelInstanceRenderer(),
+				createDefaultModelInfluencer(),
+				createDefaultSpawnInfluencer(),
+				createDefaultDynamicsInfluencer()
+		);
+		newController.renderer.setBatch(modelInstanceParticleBatch);
+		effect.getControllers().add(newController);
+		newController.init();
+		newController.start();
 	}
 
 	private void addDefaultParticleControllerController() {
@@ -383,7 +429,7 @@ public class ParticleManager implements Disposable {
 		Texture texture = null;
 		if (textureAtlas != null) texture = textureAtlas.getTextures().first();
 		if (texture == null) {
-			texture = am.get("particle.png", Texture.class);
+			texture = am.get("burst_test_particles.png", Texture.class);
 			regionInfluencer = new RegionInfluencer.Single(texture);
 			for (EventListener listener : getListeners())
 				listener.onTextureChanged(null, new TextureRegion(texture));
@@ -392,6 +438,12 @@ public class ParticleManager implements Disposable {
 			regionInfluencer = new RegionInfluencer.Single(textureAtlas.getRegions().first());
 		}
 		return regionInfluencer;
+	}
+
+	private ModelInfluencer createDefaultModelInfluencer() {
+		ModelInfluencer modelInfluencer;
+		modelInfluencer = new ModelInfluencer.Single(getLoadedModels().first());
+		return modelInfluencer;
 	}
 
 	private SpawnInfluencer createDefaultSpawnInfluencer() {

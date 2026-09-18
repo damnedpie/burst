@@ -29,6 +29,7 @@ public class Main implements ApplicationListener {
 	// Properties
 	private final Color bgColor = new Color();
 	float deltaMultiplier = 1.0f;
+	private String currentFile;
 	// UI
 	private EditorUI editorUI;
 	private Stage stage;
@@ -65,6 +66,7 @@ public class Main implements ApplicationListener {
 		InputMultiplexer multiplexer = new InputMultiplexer();
 		multiplexer.addProcessor(stage);
 		multiplexer.addProcessor(sceneCamera.getInputProcessor());
+		multiplexer.addProcessor(createHotkeyProcessor());
 		Gdx.input.setInputProcessor(multiplexer);
 		particleManager = new ParticleManager(sceneCamera);
 		particleManager.addListener(new ParticleManager.EventListener() {
@@ -76,6 +78,7 @@ public class Main implements ApplicationListener {
 		});
 		particleManager.createCleanSession();
 		editorUI.updateControllers(particleManager.getEffect().getControllers());
+		editorUI.updateLoadedModels(particleManager.getLoadedModelPaths());
 		bgColor.set(Color.valueOf(Settings.getString(Settings.SET_BG_COLOR)));
 		EditableGraph.shapeRenderer = new ShapeRenderer();
 		Gdx.graphics.setTitle("Burst | unsaved project");
@@ -165,21 +168,34 @@ public class Main implements ApplicationListener {
 		editorUI.updateControllers(particleManager.getEffect().getControllers());
 		editorUI.setEditedController(null);
 		Gdx.graphics.setTitle("Burst | unsaved project");
+		currentFile = null;
 	}
 
 	private void onOpenFilePressed() {
 		String filePath = FilePicker.pick(FilePicker.Mode.OPEN, "Particle effect (.pfx)", "pfx");
 		if (filePath == null) return;
+		currentFile = filePath;
 		Gdx.graphics.setTitle("Burst | " + filePath);
 		particleManager.loadPfx(Gdx.files.absolute(filePath));
 		editorUI.updateControllers(particleManager.getEffect().getControllers());
 		editorUI.setEditedController(null);
+		editorUI.updateLoadedModels(particleManager.getLoadedModelPaths());
 	}
 
 	private void onSaveFilePressed() {
 		String filePath = FilePicker.pick(FilePicker.Mode.SAVE, "Particle effect (.pfx)", "pfx");
 		if (filePath == null) return;
+		currentFile = filePath;
 		particleManager.savePfx(Gdx.files.absolute(filePath));
+	}
+
+	private void onSaveHotkeyPressed() {
+		if (currentFile == null) {
+			onSaveFilePressed();
+		}
+		else {
+			particleManager.savePfx(Gdx.files.absolute(currentFile));
+		}
 	}
 
 	private void onGridToggled(boolean enabled) {
@@ -221,6 +237,7 @@ public class Main implements ApplicationListener {
 		ParticleController controller = particleManager.getEffect().findController(name);
 		particleManager.getEffect().getControllers().removeValue(controller, true);
 		editorUI.updateControllers(particleManager.getEffect().getControllers());
+		editorUI.updateLoadedModels(particleManager.getLoadedModelPaths());
 	}
 
 	private void onControllerVisibilityToggled(String name, boolean enabled) {
@@ -368,6 +385,70 @@ public class Main implements ApplicationListener {
 			@Override
 			public void onUiOpacityChanged(float value) {
 				Main.this.onUiOpacityChanged(value);
+			}
+		};
+	}
+
+	private InputProcessor createHotkeyProcessor() {
+		return new InputProcessor() {
+
+			@Override
+			public boolean keyDown(int keycode) {
+				return false;
+			}
+
+			@Override
+			public boolean keyUp(int keycode) {
+				if (Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT)) {
+					if (keycode == Input.Keys.S) {
+						onSaveHotkeyPressed();
+						return true;
+					}
+					if (keycode == Input.Keys.O) {
+						onOpenFilePressed();
+						return true;
+					}
+					if (keycode == Input.Keys.N) {
+						onNewFilePressed();
+						return true;
+					}
+				}
+				return false;
+			}
+
+			@Override
+			public boolean keyTyped(char character) {
+				return false;
+			}
+
+			@Override
+			public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+				return false;
+			}
+
+			@Override
+			public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+				return false;
+			}
+
+			@Override
+			public boolean touchCancelled(int screenX, int screenY, int pointer, int button) {
+				return false;
+			}
+
+			@Override
+			public boolean touchDragged(int screenX, int screenY, int pointer) {
+				return false;
+			}
+
+			@Override
+			public boolean mouseMoved(int screenX, int screenY) {
+				return false;
+			}
+
+			@Override
+			public boolean scrolled(float amountX, float amountY) {
+				return false;
 			}
 		};
 	}
